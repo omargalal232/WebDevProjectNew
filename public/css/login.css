@@ -157,3 +157,10 @@ body {
   background: url("C:/Users/Omar Galal/Desktop/New/bg.jpg");
   background-size: cover;
 }
+
+.err {
+  color: red;
+  margin-top: 5px;
+  
+  
+}

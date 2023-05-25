@@ -32,7 +32,7 @@ body {
 }
 
 .container .title::before {
-  content: "";
+  /* content: ""; */
   position: absolute;
   left: 0;
   bottom: 0;
@@ -173,4 +173,18 @@ form .button input:hover {
 body {
   background: url("C:/Users/Omar Galal/Desktop/New/bg.jpg");
   background-size: cover;
+}
+
+.success-message {
+  position: absolute;
+  margin-top: 30%;
+  color: green;
+  display: none;
+}
+
+.failure-message {
+  position: absolute;
+  margin-top: 30%;
+  color: red;
+  display: none;
 }
