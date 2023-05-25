@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    background-image: url('yacht.jpg');
+    background-size: cover;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 2px 5px #888;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin: 0;
+}
+
+.review-icon {
+    display: inline-block;
+    background-color: #f5a623;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.cruise-details {
+    display: flex;
+    margin: 20px;
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    text-align: center;
+    padding-left: 35%;
+    
+}
+
+
+
+
+
+.picture-album {
+    position: relative;
+    display: inline-block;
+    margin-left: 300px;
+}
+
+.slides-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.slide {
+    display: inline-block;
+    width: 1000px;
+    height: 500px;
+}
+
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: #555;
+}
+
+.dot-container {
+    text-align: center;
+    padding: 20px 0;
+    background: transparent;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Make the first dot active by default */
+.dot:first-child {
+    background-color: #717171;
+}
+
+/* Display the slides that are active */
+.slide.active {
+    display: block;
+}
+
+
+
+
+.overview {
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 2px 5px #888;
+}
+
+.overview h3 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.overview p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+.reviews {
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 2px 5px #888;
+}
+
+.reviews h3 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.review {
+    margin-top: 20px;
+}
+
+.review p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+.review-author {
+    font-size: 16px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+
+nav {
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav ul li:hover>ul {
+    display: block;
+}
+
+nav ul li:hover a {
+    color: #f1f1f1;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding : 2%;
+}

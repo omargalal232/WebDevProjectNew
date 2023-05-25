@@ -1,0 +1,543 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /* background-color: #f1f1f1; */
+  color: black;
+  transition: background-color 1s , color 1s;
+
+}
+
+.container {
+  height: 100%;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+
+
+
+.background-image {
+  background: url('/images/yachthero.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content > h1 {
+  color: white;
+  font-size: 48px;
+  margin-top: 40%;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+nav {
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+nav ul li:hover a {
+  color: #f1f1f1;
+  background-color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+
+
+
+
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.filter-container .dropdowns {
+  display: flex;
+  margin-left: 10px;
+}
+
+.filter-container .dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.filter-container .dropbtn {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.filter-container .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.filter-container .dropdown-content a {
+  color: #333;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.filter-container .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.filter-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.filter-container .filter-btn:hover {
+  background-color: #333;
+}
+
+.explore-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  /* margin-top: 30px; */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.explore-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 33.3%;
+}
+
+.explore-text i {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.explore-text h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.explore-text p {
+  font-size: 16px;
+  color: #666;
+}
+
+
+.fa-ship:before {
+  content: "\f21a";
+}
+
+.fa-pen:before {
+  content: "\f304";
+}
+
+.fa-dollar-sign:before {
+  content: "\f155";
+}
+.cruise-deals {
+  
+  width: 100%;
+  max-width: 100%;
+   
+   margin-left: -2%;
+   padding-right: 3%;
+   
+  background-color: black;
+  color: white;
+}
+
+.cruise-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px; /* Add a max-width to the container */
+  margin: 0 auto; /* Center the container using margin: 0 auto; */
+}
+
+.cruise-box {
+  width: calc(50% - 20px);
+  margin-bottom: 40px;
+  border: 2px solid #ddd;
+  padding: 20px;
+  position: relative;
+  flex-basis: calc(50% - 10px);
+  margin-right: 10px;
+}
+
+.cruise-box:nth-child(2n+1) {
+  margin-right: 0;
+}
+
+.cruise-image {
+  width: 100%;
+  margin-right: 20px; /* Uncomment this line to add margin between the image and details */
+}
+
+.cruise-details {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.cruise-details p {
+  margin: 0;
+}
+
+.cruise-price {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cruise-sale-price {
+  color: #d70808;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+.view-cruise {
+  display: inline-block;
+  background-color: #ff7f50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.view-cruise:hover {
+  background-color: #ffa07a;
+  cursor: pointer;
+}
+
+.cruise-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.cruise-image {
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.view-cruise {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background-color: #ff7f50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.cruise-box:hover .cruise-image {
+  transform: translateY(50%);
+}
+
+.cruise-box:hover .view-cruise {
+  opacity: 1;
+}
+
+
+
+
+
+.island-destination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.island-destination__item {
+  text-align: center;
+  margin: 20px;
+}
+
+.island-destination__item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.island-destination__item h4 {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cruising-guide {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  z-index: 1;
+
+  
+}
+
+.cruising-guide h2 {
+  font-size: 31px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cruising-guide p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.cruising-guide ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.cruising-guide li {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.cruising-guide img {
+  display: block;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: black;
+  width: 100%;
+  position: absolute;
+  top: 587%;
+  left: 0;
+  right: 0;
+}
+
+
+footer p {
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
+}
+
+footer .fas {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #ffffff;
+}
+
+
+
+.rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★';
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #e58e09;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ff9e0b;
+}
+
+.rating > input:checked ~ label {
+  color: #ffa723;
+}
+
+
+
+label {
+  
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 15px 10px 10px;
+  cursor: pointer;
+  user-select: none;
+  
+  color: rgb(255, 255, 255);
+ }
+ 
+ input {
+  display: none;
+ }
+ 
+ input:checked + label svg {
+  fill: hsl(0deg 100% 50%);
+  stroke: hsl(0deg 100% 50%);
+  animation: heartButton 1s;
+ }
+ 
+ @keyframes heartButton {
+  0% {
+   transform: scale(1);
+  }
+ 
+  25% {
+   transform: scale(1.3);
+  }
+ 
+  50% {
+   transform: scale(1);
+  }
+ 
+  75% {
+   transform: scale(1.3);
+  }
+ 
+  100% {
+   transform: scale(1);
+  }
+ }
+ 
+ input + label .action {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+ }
+ 
+ input + label .action span {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  transition: all .5s;
+ }
+ 
+ input + label .action span.option-1 {
+  transform: translate(0px,0%);
+  opacity: 1;
+ }
+ 
+ input:checked + label .action span.option-1 {
+  transform: translate(0px,-100%);
+  opacity: 0;
+ }
+ 
+ input + label .action span.option-2 {
+  transform: translate(0px,100%);
+  opacity: 0;
+ }
+ 
+ input:checked + label .action span.option-2 {
+  transform: translate(0px,0%);
+  opacity: 1;
+ }
+ 
+ .yacht-animation {
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.yacht-animation video {
+  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 487%;
+  left: 0%;
+  right: 0%;
+  
+}
+
+

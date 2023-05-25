@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/signup.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <script>
+
+    function validateName(field) {
+      if (field == '') {
+        document.getElementById('nameErr').innerHTML = 'You Must Enter a Name.';
+        return false;
+      }
+      else {
+        document.getElementById('nameErr').innerHTML = '';
+        return true;
+      }
+    }
+
+    function validatevalidateUsername(field) {
+      if (field == '') {
+        document.getElementById('UserNameErr').innerHTML = 'You Must Enter a Username.';
+        return false;
+      }
+      else {
+        document.getElementById('UserNameErr').innerHTML = '';
+        return true;
+      }
+    }
+
+    function validateEmail(field) {
+      if (field == '') {
+        document.getElementById('EmailErr').innerHTML = 'You Must Enter an Email.';
+        return false;
+      }
+      else {
+        document.getElementById('EmailErr').innerHTML = '';
+        return true;
+      }
+    }
+
+    function validateNumber(field) {
+      if (field == '') {
+        document.getElementById('NumberErr').innerHTML = 'You Must Enter a Number.';
+        return false;
+      }
+      else {
+        document.getElementById('NumberErr').innerHTML = '';
+        return true;
+      }
+    }
+
+    function validatePassword(field1, field2) {
+      let valid = true;
+      if (field1 == '') {
+        document.getElementById('pwErr').innerHTML = 'You Must Enter a Password.';
+        valid = false;
+      }
+      else {
+        document.getElementById('pwErr').innerHTML = '';
+      }
+      if (field1 != field2 || field2 == '') {
+        document.getElementById('pwcErr').innerHTML = 'You must Enter a matching Password.';
+        valid = false;
+      }
+      else {
+        document.getElementById('pwcErr').innerHTML = '';
+      }
+      return valid;
+    }
+
+    function validate(form) {
+      let fail = '';
+      fail &= validateName(form.Name.value);
+      fail &= validateUsername(form.UserName.value);
+      fail &= validateEmail(form.Email.value);
+      fail &= validateNumber(form.Number.value);
+      fail &= validatePassword(form.Password.value, form.ConfirmPassword.value);
+
+      if (fail)
+        return true;
+      else {
+        return false;
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+
+
+      <form action='' method='post' onsubmit='return validate(this)'>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" name="Name">
+            <div id='nameErr' class='err'></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" name="UserName">
+            <div id='UserNameErr' class='err'></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" name="Email">
+            <div id='EmailErr' class='err'></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" name="Number">
+            <div id='NumberErr' class='err'></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" name="Password">
+            <div id='pwErr' class='err'></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm your password" name="ConfirmPassword">
+            <div id='pwcErr' class='err'></div>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+        <a href="login">Already A Member? Login</a>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

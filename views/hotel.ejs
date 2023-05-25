@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoEgy Tours</title>
+<link rel="stylesheet" href="F.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<header>
+  <h1 style="font-size:50px;">Hotels</h1>
+</header>
+<header>
+
+  <nav class=" hi2 navbar navbar-expand-lg bg-body-tertiary">
+    <div class=" hi2 hi3 container-fluid">
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a  style="font-size: medium;" class="nav-link" href="/homepage1">
+                        
+                        GoEgy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="hotel">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-buildings" viewBox="0 0 16 16">
+                            <path
+                                d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022ZM6 8.694 1 10.36V15h5V8.694ZM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15Z" />
+                            <path
+                                d="M2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-2 2h1v1H2v-1Zm2 0h1v1H4v-1Zm4-4h1v1H8V9Zm2 0h1v1h-1V9Zm-2 2h1v1H8v-1Zm2 0h1v1h-1v-1Zm2-2h1v1h-1V9Zm0 2h1v1h-1v-1ZM8 7h1v1H8V7Zm2 0h1v1h-1V7Zm2 0h1v1h-1V7ZM8 5h1v1H8V5Zm2 0h1v1h-1V5Zm2 0h1v1h-1V5Zm0-2h1v1h-1V3Z" />
+                        </svg>
+                        Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tours">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-briefcase" viewBox="0 0 16 16">
+                            <path
+                                d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z" />
+                        </svg>
+                        Tours</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Cruise">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-tsunami" viewBox="0 0 16 16">
+                            <path
+                                d="M.036 12.314a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65zm0 2a.5.5 0 0 1 .65-.278l1.757.703a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.014-.406a2.5 2.5 0 0 1 1.857 0l1.015.406a1.5 1.5 0 0 0 1.114 0l1.757-.703a.5.5 0 1 1 .372.928l-1.758.703a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.014-.406a1.5 1.5 0 0 0-1.114 0l-1.015.406a2.5 2.5 0 0 1-1.857 0l-1.757-.703a.5.5 0 0 1-.278-.65zM2.662 8.08c-.456 1.063-.994 2.098-1.842 2.804a.5.5 0 0 1-.64-.768c.652-.544 1.114-1.384 1.564-2.43.14-.328.281-.68.427-1.044.302-.754.624-1.559 1.01-2.308C3.763 3.2 4.528 2.105 5.7 1.299 6.877.49 8.418 0 10.5 0c1.463 0 2.511.4 3.179 1.058.67.66.893 1.518.819 2.302-.074.771-.441 1.516-1.02 1.965a1.878 1.878 0 0 1-1.904.27c-.65.642-.907 1.679-.71 2.614C11.076 9.215 11.784 10 13 10h2.5a.5.5 0 0 1 0 1H13c-1.784 0-2.826-1.215-3.114-2.585-.232-1.1.005-2.373.758-3.284L10.5 5.06l-.777.388a.5.5 0 0 1-.447 0l-1-.5a.5.5 0 0 1 .447-.894l.777.388.776-.388a.5.5 0 0 1 .447 0l1 .5a.493.493 0 0 1 .034.018c.44.264.81.195 1.108-.036.328-.255.586-.729.637-1.27.05-.529-.1-1.076-.525-1.495-.426-.42-1.19-.77-2.477-.77-1.918 0-3.252.448-4.232 1.123C5.283 2.8 4.61 3.738 4.07 4.79c-.365.71-.655 1.433-.945 2.16-.15.376-.301.753-.463 1.13z" />
+                        </svg>
+                        Cruise</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="flight">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-airplane" viewBox="0 0 16 16">
+                            <path
+                                d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z" />
+                        </svg>
+                        Flight Tickets</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Dropdown link
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</header>
+
+<body>
+  
+  <div class="main_image">
+    <div class="main_text">
+      <h1>Egypt Hotels and Places to Stay in   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+      </svg></h1>
+      <p>Enter dates to find the best prices </p>
+      
+    </div>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label style="color: aliceblue ;" for="checkin-date">Check-In Date</label>
+            <input type="date" class="form-control" id="checkin-date">
+          </div>
+          <div class="form-group col-md-6">
+            <label style="color: aliceblue ;" for="checkout-date">Check-Out Date</label>
+            <input type="date" class="form-control" id="checkout-date">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label style="color: aliceblue ;" for="rooms-select">Rooms</label>
+            <select class="form-control" id="rooms-select">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label style="color: aliceblue ;" for="adults-select">Adults</label>
+            <select class="form-control" id="adults-select">
+              <option selected>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label style="color: aliceblue ;" for="children-select">Children</label>
+            <select class="form-control" id="children-select">
+              <option selected>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-4"><button type="submit" class="upbutton">Update</button></div>
+        
+      </form>
+   
+  </div>
+  <br>
+  <br>
+  <div class="pages_links"> 
+
+  <ul class="list-left">
+      <li><a style="text-decoration: none ;color: black;padding-left: 80px;" href="Redsea.html"><b>RedSea</b> </a>
+      </li>
+    </ul>
+    <ul class="list-right">
+      <li><a style="text-decoration: none ;color: black;padding-left: 80px;" href="Redsea.html"><b>El-Sokhna</b> </a>
+      </li>
+    </ul>
+  
+    <ul class=" list-left">
+      <li><a style="text-decoration: none ;color: black; padding-bottom: 20px;padding-left: 80px;" href="luxor&Aswan.html"><b> Luxor</b></a>
+      </li>
+    </ul> 
+    <ul class="list-right"> <li><a style="text-decoration: none ;color: black;padding-left: 80px;" href="sinai.html"><b>Sinai</b></a>
+    </li>
+    </ul>
+    <ul class="list-left">
+      <li><a style="text-decoration: none ;color: black;padding-left: 80px;" href="Redsea.html"><b>Aswan</b> </a>
+      </li>
+    </ul>
+ 
+    <ul class="list-right"><li><a style="text-decoration: none ;color: black;padding-left: 80px;" href="alex.html"><b>Alexandria</b></a></li>
+    </ul>
+
+  </div>
+  <section class="highly-rated-hotels">
+    <h2>Highly Rated Hotels</h2>
+    <div class="hotel-list">
+      <div class="hotel">
+        <img  style="height: 250px;" src="/images/llll.jpeg">
+        <h3>Marriot</h3>
+      </div>
+      <section class="rating">
+
+       
+      </section>
+      <div class="hotel">
+         <a href="#"><img style="height: 250px;" src="/images/h8.jfif" ></a>
+        <h3>Pick Albtros LongBeach</h3>
+        
+      </div>
+      <div class="hotel">
+        <a href="#"><img style="height: 250px;" src="/images/h2.jfif"></a>
+        <h3>Titanic</h3>
+        
+        
+      </div>
+      <div class="hotel">
+        <a href="#"><img style="height: 250px;" src="/images/ke.jpg" ></a>
+        <h3>Kempenski</h3>
+       
+        
+      </div>
+      <div class="hotel">
+       <a href="#"><img style="height: 250px;" src="/images/rooftop-pool-during-sunset.jpg" ></a> 
+        <h3>Panorama bungalows El-Gouna</h3>
+        
+      </div>
+      <div class="hotel">
+       <a href="#"><img style="height: 250px;" src="/images/IBERTOTEL.jpg" ></a> 
+        <h3>Sindbad Club</h3>
+        
+        
+      </div>
+      <div class="hotel">
+        <a href="#"><img style="height: 250px;" src="/images/steigenberger-nile-palace.jpg" ></a>
+        <h3>Palm Beach</h3>
+        
+        
+      </div><div class="hotel">
+       <a href="#"><img style="height: 250px;" src="/images/royal-savoy-hotel-and.jpg" ></a> 
+        <h3>Selens Bay</h3>
+      
+      </div>
+     
+    </div>
+  </section>
+  <br>
+  <h3> Hot <span  style="color: reD;"> Deals </span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
+    <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z"/>
+  </svg> </h3>
+  <section class="hotel_deals">
+  <div class="hotel-row">
+        <div class="hotel-box">
+            <h3>Titanic</h3>
+            <a href="#"><img style="width: 300px; height: 250px;" src="/images/pexeeee.jfif" alt=""></a>
+            <div  class="hotel-details">
+                <p>Detials :</p>
+                <p>5 Stars Hotel since 1995</p>
+                <p> This offer for double bedroom Per Night</p>
+            </div>
+            <div class="hotel-price">
+                <p><span class="hotel-sale-price"> EGP 1700,00</span> EGP 1250,00</p>
+            </div>
+            <div class="picture-rating">
+              <h3>Picture Title</h3>
+              <div class="rating-bar">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5" title="5 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" title="4 stars"><i class="fa fa-star" aria-hidden="true"> </i>
+                </label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" title="3 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" title="2 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" title="1 star"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+              </div>
+            </div>
+            <a href="Redsea.html"><button class="view-hotel">View deal</button></a>
+
+        </div>
+
+        <div class="hotel-box">
+            <h3>ShtigenBurger</h3>
+            <a href="#"><img style="width: 300px; height: 250px;" src="/images/sofital.jpg" alt=""></a>
+            <div style="padding-left: 70px;" class="hotel-details">
+                <p>Detials :</p>
+                <p>5 stars hotel since 2000</p>
+                <p>  This offer for single bedroom Per Night Not full exclusive</p>
+            </div>
+            <div class="hotel-price">
+                <p><span class="hotel-sale-price">EGP 1950,00 </span> EGP 1000,00</p>
+            </div>
+            <div class="picture-rating">
+              <h3>Picture Title</h3>
+              <div class="rating-bar">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5" title="5 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" title="4 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" title="3 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" title="2 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" title="1 star"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+              </div>
+            </div>
+            
+            <button class="view-hotel">View Deal</button>
+        </div>
+    </div>
+
+    <div class="hotel-row">
+        <div class="hotel-box">
+            <h3>Marriot</h3>
+            <a href="#"><img style="width: 300px; height: 250px;" src="/images/jjj.jpg" alt=""></a>
+            <div style="padding-left: 70px;" class="hotel-details">
+                <p>Details</p>
+                <p>4 stars hotel since 2004</p>
+                <p>This offer for triple bedroom per night full exclusive</p>
+            </div>
+            <div class="hotel-price">
+                <p><span class="hotel-sale-price">EGP 3150,00 EGP </span> 2500,00</p>
+            </div>
+            <div class="picture-rating">
+              <h3>Picture Title</h3>
+              <div class="rating-bar">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5" title="5 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" title="4 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" title="3 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" title="2 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" title="1 star"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+              </div>
+            </div>
+            <button class="view-hotel">View Deal</button>
+        </div>
+
+        <div class="hotel-box">
+            <h3>Hilton</h3>
+            <a href="#"><img style="width: 300px; height: 250px;" src="/images/exterior.jpg" alt=""></a>
+            <div style="padding-left: 70px;" class="hotel-details">
+                <p>detials :</p>
+                <p>5 stars hotel since 1999 </p>
+                <p> this offer for single bedroom per night not full exclusive</p>
+            </div>
+            <div style="padding-left: 200px;" class="hotel-price">
+                <p><span class="hotel-sale-price">EGP 1200,00 </span> EGP 800,00</p>
+            </div>
+            <div class="picture-rating">
+              <h3>Picture Title</h3>
+              <div class="rating-bar">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5" title="5 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" title="4 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" title="3 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" title="2 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" title="1 star"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+              </div>
+            </div>
+            <button class="view-hotel">View Deal</button>
+        </div>
+    </div>
+
+    <div class="hotel-row">
+        <div class="hotel-box">
+            <h3>Makadi Bay</h3>
+           <a href="#"> <img style="width: 300px; height: 250px;" src="/images/klkl.peg.jpeg" alt=""></a>
+            <div style="padding-left: 80px;" class="hotel-details">
+                <p>detials :</p>
+                <p>5 stars hoel since 2007</p>
+                <p>This offer for double bedroom per 2 nights not full exclusive</p>
+            </div>
+            <div class="hotel-price">
+                <p><span class="hotel-sale-price">EGP 4500,00 </span> EGP 2200,00</p>
+            </div>
+            <div class="picture-rating">
+              <h3>Picture Title</h3>
+              <div class="rating-bar">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5" title="5 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" title="4 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" title="3 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" title="2 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" title="1 star"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+              </div>
+            </div>
+            <button class="view-hotel">View Deal
+            </button>
+        </div>
+        <div class="hotel-box">
+            <h3>Kempenski</h3>
+           <a href="#"> <img style="width: 300px; height: 250px;" src="/images/wwaw.jpeg" alt=""></a>  
+            <div style="padding-left: 70px;" class="hotel-details">
+                <p>detials :</p>
+                <p>4 stars hotel since 2006</p>
+                <p>This offer for triple bedroom per 3 nights  full exclusive</p>
+            </div>
+            <div class="hotel-price">
+                <p><span class="hotel-sale-price"> EGP 6000,00</span>EGP 4000,00</p>
+            </div>
+            <div class="picture-rating">
+              <h3>Picture Title</h3>
+              <div class="rating-bar">
+                <input type="radio" id="star5" name="rating" value="5" />
+                <label for="star5" title="5 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" title="4 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" title="3 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" title="2 stars"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" title="1 star"><i class="fa fa-star" aria-hidden="true"></i>
+                </label>
+              </div>
+            </div>
+            <button class="view-hotel">View Deal</button>
+        </div>
+    </div>
+</section>
+<section class="rating">
+
+
+  
+    </body>
+    <footer style="text-align: center;">
+      <p><i class="fas fa-building"></i> &copy; 2023 GoEgy. All Rights Reserved.</p>
+  </footer>
