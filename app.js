@@ -12,7 +12,7 @@ const users = require('./models/users');
   
 
 
-
+const bcrypt = require("bcryptjs")
 
 
 const { request } = require("http");
@@ -104,8 +104,13 @@ app.post("/signup-action", (req, res) => {
   
 
   });
+ 
+
+
 user
-    .save( )
+    .save(
+    
+     )
     .then( result => {
       res.redirect('/');
     })

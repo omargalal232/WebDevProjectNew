@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
- 
+const bcrypt = require("bcryptjs")
 // define the Schema (the structure of the article)
 const userSchema = new Schema({
   Name: {
@@ -31,10 +31,35 @@ const userSchema = new Schema({
   
 }, { timestamps: true });
 
- 
+userSchema.pre("save", function (next) {
+  const user = this
+
+  if (this.isModified("Password") || this.isNew) {
+    bcrypt.genSalt(10, function (saltError, salt) {
+      if (saltError) {
+        return next(saltError)
+      } else {
+        bcrypt.hash(user.Password, salt, function(hashError, hash) {
+          if (hashError) {
+            return next(hashError)
+          }
+
+          user.Password = hash
+          user.ConfirmPassword=hash
+          next()
+        })
+      }
+    })
+  } else {
+    return next()
+  }
+})
  
 // Create a model based on that schema
 const users = mongoose.model("users", userSchema);
+
+
+
  
  
 // export the model
