@@ -1,158 +1,184 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="/css/signup.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-  <script>
-
-    function validateName(field) {
-      if (field == '') {
-        document.getElementById('nameErr').innerHTML = 'You Must Enter a Name.';
-        return false;
+    <script>
+      function validateName(field) {
+        if (field == "") {
+          document.getElementById("nameErr").innerHTML =
+            "You Must Enter a Name.";
+          return false;
+        } else {
+          document.getElementById("nameErr").innerHTML = "";
+          return true;
+        }
       }
-      else {
-        document.getElementById('nameErr').innerHTML = '';
-        return true;
-      }
-    }
 
-    function validatevalidateUsername(field) {
-      if (field == '') {
-        document.getElementById('UserNameErr').innerHTML = 'You Must Enter a Username.';
-        return false;
+      function validateUsername(field) {
+        if (field == "") {
+          document.getElementById("UserNameErr").innerHTML =
+            "You Must Enter a Username.";
+          return false;
+        } else {
+          document.getElementById("UserNameErr").innerHTML = "";
+          return true;
+        }
       }
-      else {
-        document.getElementById('UserNameErr').innerHTML = '';
-        return true;
-      }
-    }
 
-    function validateEmail(field) {
-      if (field == '') {
-        document.getElementById('EmailErr').innerHTML = 'You Must Enter an Email.';
-        return false;
+      function validateEmail(field) {
+        if (field === "") {
+          document.getElementById("EmailErr").innerHTML =
+            "You Must Enter an Email.";
+          return false;
+        } else if (!field.includes("@")) {
+          document.getElementById("EmailErr").innerHTML =
+            "Invalid Email Format.";
+          return false;
+        } else {
+          document.getElementById("EmailErr").innerHTML = "";
+          return true;
+        }
       }
-      else {
-        document.getElementById('EmailErr').innerHTML = '';
-        return true;
-      }
-    }
 
-    function validateNumber(field) {
-      if (field == '') {
-        document.getElementById('NumberErr').innerHTML = 'You Must Enter a Number.';
-        return false;
+      function validateNumber(field) {
+        if (field === "") {
+          document.getElementById("NumberErr").innerHTML =
+            "You Must Enter a Number.";
+          return false;
+        } else if (!/^\+?\d+$/.test(field)) {
+          document.getElementById("NumberErr").innerHTML =
+            "Invalid Number Format. Only digits are allowed.";
+          return false;
+        } else {
+          document.getElementById("NumberErr").innerHTML = "";
+          return true;
+        }
       }
-      else {
-        document.getElementById('NumberErr').innerHTML = '';
-        return true;
+
+      function validatePassword(field1, field2) {
+        let valid = true;
+        if (field1 == "") {
+          document.getElementById("pwErr").innerHTML =
+            "You Must Enter a Password.";
+          valid = false;
+        } else {
+          document.getElementById("pwErr").innerHTML = "";
+        }
+        if (field1 != field2 || field2 == "") {
+          document.getElementById("pwcErr").innerHTML =
+            "You must Enter a matching Password.";
+          valid = false;
+        } else {
+          document.getElementById("pwcErr").innerHTML = "";
+        }
+        return valid;
       }
-    }
 
-    function validatePassword(field1, field2) {
-      let valid = true;
-      if (field1 == '') {
-        document.getElementById('pwErr').innerHTML = 'You Must Enter a Password.';
-        valid = false;
+      function validate(form) {
+        let fail = false;
+        fail = fail || !validateName(form.Name.value);
+        fail = fail || !validateUsername(form.UserName.value);
+        fail = fail || !validateEmail(form.Email.value);
+        fail = fail || !validateNumber(form.Number.value);
+        fail =
+          fail ||
+          !validatePassword(form.Password.value, form.ConfirmPassword.value);
+
+        let successMessage = document.getElementById("successMessage");
+        let failureMessage = document.getElementById("failureMessage");
+
+        if (fail) {
+          failureMessage.style.display = "block";
+          successMessage.style.display = "none";
+          return false;
+        } else {
+          failureMessage.style.display = "none";
+          successMessage.style.display = "block";
+          return true;
+        }
       }
-      else {
-        document.getElementById('pwErr').innerHTML = '';
-      }
-      if (field1 != field2 || field2 == '') {
-        document.getElementById('pwcErr').innerHTML = 'You must Enter a matching Password.';
-        valid = false;
-      }
-      else {
-        document.getElementById('pwcErr').innerHTML = '';
-      }
-      return valid;
-    }
+    </script>
+  </head>
+  <div class="nav-pos"><%- include("./partials/nav.ejs") %></div>
 
-    function validate(form) {
-      let fail = '';
-      fail &= validateName(form.Name.value);
-      fail &= validateUsername(form.UserName.value);
-      fail &= validateEmail(form.Email.value);
-      fail &= validateNumber(form.Number.value);
-      fail &= validatePassword(form.Password.value, form.ConfirmPassword.value);
-
-      if (fail)
-        return true;
-      else {
-        return false;
-      }
-    }
-  </script>
-
-</head>
-
-<body>
-  <div class="container">
-    <div class="title">Registration</div>
-    <div class="content">
-
-
-      <form action='' method='post' onsubmit='return validate(this)'>
-        <div class="user-details">
-          <div class="input-box">
-            <span class="details">Full Name</span>
-            <input type="text" placeholder="Enter your name" name="Name">
-            <div id='nameErr' class='err'></div>
+  <body>
+    <div class="container">
+      <div class="title">Registration</div>
+      <div class="content">
+        <form
+          action="/signup/signup"
+          method="POST"
+          onsubmit="return validate(this)"
+        >
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Full Name</span>
+              <input type="text" placeholder="Enter your name" name="Name" />
+              <div id="nameErr" class="err"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Username</span>
+              <input
+                type="text"
+                placeholder="Enter your username"
+                name="UserName"
+              />
+              <div id="UserNameErr" class="err"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="text" placeholder="Enter your email" name="Email" />
+              <div id="EmailErr" class="err"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input
+                type="text"
+                placeholder="Enter your number"
+                name="Number"
+              />
+              <div id="NumberErr" class="err"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                name="Password"
+              />
+              <div id="pwErr" class="err"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              <input
+                type="password"
+                placeholder="Confirm your password"
+                name="ConfirmPassword"
+              />
+              <div id="pwcErr" class="err"></div>
+            </div>
           </div>
-          <div class="input-box">
-            <span class="details">Username</span>
-            <input type="text" placeholder="Enter your username" name="UserName">
-            <div id='UserNameErr' class='err'></div>
-          </div>
-          <div class="input-box">
-            <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" name="Email">
-            <div id='EmailErr' class='err'></div>
-          </div>
-          <div class="input-box">
-            <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" name="Number">
-            <div id='NumberErr' class='err'></div>
-          </div>
-          <div class="input-box">
-            <span class="details">Password</span>
-            <input type="text" placeholder="Enter your password" name="Password">
-            <div id='pwErr' class='err'></div>
-          </div>
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
-            <input type="text" placeholder="Confirm your password" name="ConfirmPassword">
-            <div id='pwcErr' class='err'></div>
-          </div>
-        </div>
-        <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1">
-          <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-              <span class="dot one"></span>
-              <span class="gender">Male</span>
-            </label>
-            <label for="dot-2">
-              <span class="dot two"></span>
-              <span class="gender">Female</span>
-          </div>
-        </div>
-        <div class="button">
-          <input type="submit" value="Register">
-        </div>
-        <a href="login">Already A Member? Login</a>
+          <div class="gender-details">
+            <input type="radio" name="gender" id="dot-1" />
+            <input type="radio" name="gender" id="dot-2" />
+            <input type="radio" name="gender" id="dot-3" />
 
-      </form>
+            <div class="category"></div>
+          </div>
+          <div class="button">
+            <input type="submit" value="Register" />
+          </div>
+          <a href="login">Already A Member? Login</a>
+        </form>
+      </div>
     </div>
-  </div>
-
-</body>
-
+    <br>
+    <div id="successMessage" class="success-message">Registration Successful</div>
+    <div id="failureMessage" class="failure-message">Error in Registration</div>
+  </body>
 </html>
+

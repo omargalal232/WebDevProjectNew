@@ -5,22 +5,51 @@
    <meta charset="utf-8">
    <title>Login Form</title>
    <link rel="stylesheet" href="/css/login.css">
+   <link rel="stylesheet" href="/css/nav.css" />
+ 
+   <script>
+      function validateLoginForm(form) {
+         var email = form.email.value;
+         var password = form.password.value;
+         var valid = true;
+
+         if (email.trim() === "") {
+            document.getElementById("emailErr").innerHTML = "Please enter your email address.";
+            valid = false;
+         } else {
+            document.getElementById("emailErr").innerHTML = "";
+         }
+
+         if (password.trim() === "") {
+            document.getElementById("passwordErr").innerHTML = "Please enter your password.";
+            valid = false;
+         } else {
+            document.getElementById("passwordErr").innerHTML = "";
+         }
+
+         return valid;
+      }
+   </script>
 </head>
+<div class="nav-pos"><%- include("./partials/nav.ejs") %></div>
+<br><br>
 
 <body>
    <div class="wrapper">
       <div class="title">
          Login
       </div>
-      <form action="#">
+      <form action="/login" method="POST" onsubmit="return validateLoginForm(this)">
          <div class="field">
-            <input type="text" required>
+            <input type="text" id="email" name="email" >
             <label>Email Address</label>
          </div>
+         <div id="emailErr" class="err"></div>
          <div class="field">
-            <input type="password" required>
+            <input type="password" id="password" name="password" >
             <label>Password</label>
          </div>
+         <div id="passwordErr" class="err"></div>
          <div class="content">
             <div class="checkbox">
                <input type="checkbox" id="remember-me">
