@@ -4,11 +4,12 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const path = require("path");
 
+const mongoose = require('mongoose');
 
 
-
-    console.log(`app listening on http://localhost:${port}`);
-    
+const users = require('./models/users');
+   
+  
 
 
 
@@ -19,7 +20,15 @@ const { request } = require("http");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 const port = 8080;
-
+mongoose.connect("mongodb+srv://yousefhany:hany2002@cluster1.zspsqcg.mongodb.net/test?retryWrites=true&w=majority")
+  .then( result => {
+    app.listen(port, () => {
+      console.log(`Example app listening on http://localhost:${port}`);
+    })
+  })
+  .catch( err => {
+    console.log(err);
+  });
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -80,6 +89,32 @@ app.use("/signup", signupRouter);
 // app.get('/admindashboard', (req, res) => {
 //   res.render("admindashboard")
 // })
+
+
+
+app.post("/signup-action", (req, res) => {
+  const user = new users({
+  
+    Name: req.body.Name,
+    UserName: req.body.UserName,
+    Email: req.body.Email,
+    Number: req.body.Number,
+    Password: req.body.Password,
+    ConfirmPassword: req.body.ConfirmPassword,
+  
+
+  });
+user
+    .save( )
+    .then( result => {
+      res.redirect('/');
+    })
+    .catch( err => {
+      console.log(err);
+    });
+}); 
+
+
 
   // 404 page
 app.use((req, res) => {
