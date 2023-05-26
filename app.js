@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 const users = require('./models/users');
    
-  
+const user= require('./controllers/users')
 
 
 const bcrypt = require("bcryptjs")
@@ -51,6 +51,7 @@ const homepage1Router = require("./routes/homepage1");
 const cruisesRoutes = require("./routes/Cruise");
 const cruisesTours = require("./routes/tours");
 const signupRouter = require("./routes/signup");
+const { AddUser } = require("./controllers/users");
 // Routes
 app.use("/", homepage1Router);
 app.use("/Cruise", cruisesRoutes);
@@ -90,35 +91,34 @@ app.use("/signup", signupRouter);
 //   res.render("admindashboard")
 // })
 
+app.post("/signup-action",user.AddUser);
 
 
-app.post("/signup-action", (req, res) => {
-  const user = new users({
+
+
+app.post('/loginn', (req, res) => {
+  var query = { Email: req.body.email };
+  users.find(query)
   
-    Name: req.body.Name,
-    UserName: req.body.UserName,
-    Email: req.body.Email,
-    Number: req.body.Number,
-    Password: req.body.Password,
-    ConfirmPassword: req.body.ConfirmPassword,
-  
-
-  });
- 
-
-
-user
-    .save(
+    .then(result => {
+      if (result.length > 0) {
+        const auth =  bcrypt.compare (password, user.Password);
+if (auth) {
+  console.log(result[0]);
+  req.session.user = result[0];
+  res.render("homepage1");
+}
+throw Error('incorrect password');
+       
+      }
     
-     )
-    .then( result => {
-      res.redirect('/');
+      
+      
     })
-    .catch( err => {
+    .catch(err => {
       console.log(err);
     });
-}); 
-
+});
 
 
   // 404 page
