@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
- 
+ const bcrypt= require ("bcryptjs");
 // define the Schema (the structure of the article)
 const userSchema = new Schema({
   Name: {

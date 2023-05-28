@@ -5,7 +5,7 @@ const logger = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 
-
+const bcrypt= require ("bcryptjs");
 mongoose.connect(
   "mongodb+srv://youssef:MIU12345@cluster1.4w0cahu.mongodb.net/DB?retryWrites=true&w=majority", { useNewUrlParser: true,
   useUnifiedTopology: true,}
