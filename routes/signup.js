@@ -18,5 +18,6 @@ router.get('/signup', (req, res ) => {
 
 
 router.post('/signup', users.AddUser);
+router.post('/checkUN', users.checkUN);
 
 module.exports = router;

@@ -39,9 +39,27 @@ const AddUser = (req, res) => {
         });
 };
 
+const checkUN = (req, res) => {
+  var query = { UserName: req.body.UserName };
+  users.find(query)
+      .then(result => {
+          if (result.length > 0) {
+              res.send('taken');
+          }
+          else {
+              res.send('available');
+          }
+      })
+      .catch(err => {
+          console.log(err);
+      });
+};
+
   module.exports = {
     AddUser: AddUser,
-    GetUser: GetUser
+    GetUser: GetUser,
+    checkUN: checkUN
+
   };
     
   
