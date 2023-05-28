@@ -52,11 +52,13 @@ const homepage1Router = require("./routes/homepage1");
 const cruisesRoutes = require("./routes/Cruise");
 const cruisesTours = require("./routes/tours");
 const signupRouter = require("./routes/signup");
+const loginRouter = require("./routes/login")
 // Routes
 app.use("/", homepage1Router);
 app.use("/Cruise", cruisesRoutes);
 app.use("/tours", cruisesTours);
 app.use("/signup", signupRouter);
+app.use("/login", loginRouter);
 
 // app.get('/', (req, res) => {
 //   res.render("homepage1")

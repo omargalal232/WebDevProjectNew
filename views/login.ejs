@@ -6,7 +6,7 @@
    <title>Login Form</title>
    <link rel="stylesheet" href="/css/login.css">
    <link rel="stylesheet" href="/css/nav.css" />
- 
+
    <script>
       function validateLoginForm(form) {
          var email = form.email.value;
@@ -39,14 +39,14 @@
       <div class="title">
          Login
       </div>
-      <form action="/login" method="POST" onsubmit="return validateLoginForm(this)">
+      <form action="/login/homepage1" method="POST" onsubmit="return validateLoginForm(this)">
          <div class="field">
-            <input type="text" id="email" name="email" >
-            <label>Email Address</label>
+            <input type="text" id="email" name="email">
+            <label>Email</label>
          </div>
          <div id="emailErr" class="err"></div>
          <div class="field">
-            <input type="password" id="password" name="password" >
+            <input type="password" id="password" name="password">
             <label>Password</label>
          </div>
          <div id="passwordErr" class="err"></div>
@@ -65,6 +65,10 @@
          <div class="signup-link">
             Not a member? <a href="/signup">Signup now</a>
          </div>
+
+         <div id="loginErrorMessage" class="err"></div>
+
+
       </form>
    </div>
 </body>

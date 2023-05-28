@@ -23,21 +23,28 @@ const AddUser = (req, res) => {
   };
 
   const GetUser = (req, res) => {
-    var query = { UserName: req.body.un, Password: req.body.pw };
-    Employees.findOne(query)
-        .then(result => {
-            if (!result) {
-                res.render('err', { err: 'Invalid Data', user: (req.session.user === undefined ? "" : req.session.user) })
-            }
-            else {
-                req.session.user = result;
-                res.redirect('/user/profile');
-            }
-        })
-        .catch(err => {
-            console.log(err);
-        });
-};
+    var email = req.body.email;
+    var password = req.body.password;
+ 
+    users.findOne({ Email: email })
+       .then(users => {
+          if (!users || users.Password !== password) {
+             res.render("login", { errorMessage: "Username or password is wrong. Please try again." });
+          } else {
+             req.session.users = users;
+             res.render("/login/homepage1");
+          }
+       })
+       .catch(err => {
+          console.log(err);
+          res.render("login", { errorMessage: "An error occurred. Please try again." });
+       });
+ };
+ 
+
+ 
+ 
+  
 
 const checkUN = (req, res) => {
   var query = { UserName: req.body.UserName };
