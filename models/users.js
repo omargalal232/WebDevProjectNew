@@ -35,6 +35,29 @@ const userSchema = new Schema({
  
 // Create a model based on that schema
 const users = mongoose.model("users", userSchema);
++userSchema.pre("save", function (next) {
+  const user = this
+
+  if (this.isModified("Password") || this.isNew) {
+    bcrypt.genSalt(10, function (saltError, salt) {
+      if (saltError) {
+        return next(saltError)
+      } else {
+        bcrypt.hash(user.Password, salt, function(hashError, hash) {
+          if (hashError) {
+            return next(hashError)
+          }
+
+          user.Password = hash
+          user.ConfirmPassword=hash
+          next()
+        })
+      }
+    })
+  } else {
+    return next()
+  }
+})
  
  
 // export the model
