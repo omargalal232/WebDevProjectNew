@@ -3,9 +3,9 @@
 
 <head>
    <meta charset="utf-8">
-   <title>Login Form</title>
    <link rel="stylesheet" href="/css/login.css">
    <link rel="stylesheet" href="/css/nav.css" />
+   <title>Login</title>
    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
    <script>
       function validateLoginForm(form) {
@@ -27,7 +27,15 @@
             document.getElementById("passwordErr").innerHTML = "";
          }
 
+         if (!email.trim() && !password.trim()) {
+            document.getElementById("emailErr").innerHTML = "Please enter your email address.";
+            document.getElementById("passwordErr").innerHTML = "Please enter your password.";
+            valid = false;
+         }
+
+         return valid;
       }
+
 
    </script>
 </head>

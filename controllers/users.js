@@ -31,7 +31,7 @@ const AddUser = (req, res) => {
        .then(user => {
           if (!user) {
              // User with the provided email not found
-             res.render("login", { errorMessage: "Username or password is wrong. Please try again." });
+             res.render("login", { errorMessage: "Email or password is wrong. Please try again." });
           } else {
              bcrypt.compare(password, user.Password, (err, isMatch) => {
                 if (err) {
@@ -47,7 +47,7 @@ const AddUser = (req, res) => {
                    res.redirect("homepage1");
                 } else {
                    // Password does not match
-                   res.render("login", { errorMessage: "Username or password is wrong. Please try again." });
+                   res.render("login", { errorMessage: "Email or password is wrong. Please try again." });
                 }
              });
           }
