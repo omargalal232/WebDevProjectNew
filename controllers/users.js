@@ -1,5 +1,6 @@
 const users = require("../models/users");
 const path = require("path");
+const bcrypt= require ("bcryptjs");
 
 const AddUser = (req, res) => {
     const user = new users({
@@ -27,12 +28,28 @@ const AddUser = (req, res) => {
     var password = req.body.password;
  
     users.findOne({ Email: email })
-       .then(users => {
-          if (!users || users.Password !== password) {
+       .then(user => {
+          if (!user) {
+             // User with the provided email not found
              res.render("login", { errorMessage: "Username or password is wrong. Please try again." });
           } else {
-             req.session.users = users;
-             res.render("/login/homepage1");
+             bcrypt.compare(password, user.Password, (err, isMatch) => {
+                if (err) {
+                   // Error occurred during password comparison
+                   console.log(err);
+                   res.render("login", { errorMessage: "An error occurred. Please try again." });
+                }
+ 
+                if (isMatch) {
+                   // Password matched, login successful
+                   req.session.users = users;
+                   
+                   res.redirect("homepage1");
+                } else {
+                   // Password does not match
+                   res.render("login", { errorMessage: "Username or password is wrong. Please try again." });
+                }
+             });
           }
        })
        .catch(err => {
@@ -41,10 +58,8 @@ const AddUser = (req, res) => {
        });
  };
  
+ 
 
- 
- 
-  
 
 const checkUN = (req, res) => {
   var query = { UserName: req.body.UserName };

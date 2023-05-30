@@ -92,6 +92,9 @@ app.use("/login", loginRouter);
 // app.get('/admindashboard', (req, res) => {
 //   res.render("admindashboard")
 // })
+// app.get('/addAdmin', (req, res) => {
+//   res.render("addAdmin")
+// })
 
   // 404 page
 app.use((req, res) => {

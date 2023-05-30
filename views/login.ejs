@@ -6,7 +6,7 @@
    <title>Login Form</title>
    <link rel="stylesheet" href="/css/login.css">
    <link rel="stylesheet" href="/css/nav.css" />
-
+   <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
    <script>
       function validateLoginForm(form) {
          var email = form.email.value;
@@ -27,8 +27,8 @@
             document.getElementById("passwordErr").innerHTML = "";
          }
 
-         return valid;
       }
+
    </script>
 </head>
 <div class="nav-pos"><%- include("./partials/nav.ejs") %></div>
@@ -39,7 +39,7 @@
       <div class="title">
          Login
       </div>
-      <form action="/login/homepage1" method="POST" onsubmit="return validateLoginForm(this)">
+      <form action="/login/login" method="POST" onsubmit="return validateLoginForm(this)">
          <div class="field">
             <input type="text" id="email" name="email">
             <label>Email</label>
@@ -65,11 +65,13 @@
          <div class="signup-link">
             Not a member? <a href="/signup">Signup now</a>
          </div>
-
-         <div id="loginErrorMessage" class="err"></div>
-
-
       </form>
+   </div>
+   <br>
+   <div id="loginErrorMessage" class="err">
+      <% if (typeof errorMessage !=='undefined' ) { %>
+         <%= errorMessage %>
+            <% } %>
    </div>
 </body>
 
