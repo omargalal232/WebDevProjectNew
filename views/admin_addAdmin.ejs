@@ -1,13 +1,16 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Add Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="addAdmin.css">
 </head>
+
+
+
+
 
 <body>
 
@@ -59,41 +62,35 @@
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card bg-primary text-white mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Tours</h5>
-                                <h1 class="display-4">150</h1>
-                            </div>
-                        </div>
+                <h1>Add User</h1>
+                <form action="#" method="GET" enctype="multipart/form-data">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card bg-success text-white mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Customers</h5>
-                                <h1 class="display-4">250</h1>
-                            </div>
-                        </div>
+                    <br>
+                    <div>
+                        <label for="id">ID:</label>
+                        <input type="text" id="id" name="id" required>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card bg-warning text-white mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Bookings</h5>
-                                <h1 class="display-4">400</h1>
-                            </div>
-                        </div>
+                    <div>
+                        <br>
+                        <label for="position">Position:</label>
+                        <select id="position" name="position" required>
+                            <option value="admin">Admin</option>
+                            <option value="client">Client</option>
+                        </select>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card bg-danger text-white mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Revenue</h5>
-                                <h1 class="display-4">$50k</h1>
-                            </div>
-                        </div>
+                    <div>
+                        <br>
+                        <label for="picture">Picture:</label>
+                        <input type="file" id="picture" name="picture">
                     </div>
-                </div>
-                <!-- Add your content here -->
+                    <br>
+                    <div>
+                        <input class="adduser" type="submit" value="Add User">
+                    </div>
+                </form>
             </main>
         </div>
     </div>
