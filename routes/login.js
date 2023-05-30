@@ -1,29 +1,42 @@
 const express = require("express");
 const router = express.Router();
 const users = require("../controllers/users");
-var bodyParser = require('body-parser');
-
+const bodyParser = require('body-parser');
 
 router.use(bodyParser.json());
-// GET login: /login
+
 router.get("/", (req, res) => {
-  res.render("login");
+  res.render("login", { users: req.session.users || null });
 });
 
-router.get('/login', (req, res) => {
-  res.render('login');
+router.get("/login", (req, res) => {
+  res.render("login", { users: req.session.users || null });
 });
+
+
 
 router.get('/homepage1', (req, res) => {
-  res.render('homepage1');
+  res.render('homepage1', { users: req.session.users || "" });
 });
 
 router.get("/signout", (req, res) => {
   req.session.destroy();
-  res.render("homepage1");
+  res.render("homepage1", { users: "" });
+});
+
+router.get('/signout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
+router.post("/login", (req, res, next) => {
+  users.GetUser(req, res, next);
+}, (req, res) => {
+  const { UserName } = req.session.users;
+  req.session.username = UserName;
+  res.redirect("homepage1");
 });
 
 
-router.post("/login", users.GetUser); 
 
 module.exports = router;
