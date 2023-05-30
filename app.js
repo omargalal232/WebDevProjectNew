@@ -56,49 +56,17 @@ const homepage1Router = require("./routes/homepage1");
 const cruisesRoutes = require("./routes/Cruise");
 const cruisesTours = require("./routes/tours");
 const signupRouter = require("./routes/signup");
-const loginRouter = require("./routes/login")
+const loginRouter = require("./routes/login");
+const admindashboardRouter = require("./routes/admindashboard");
 // Routes
 app.use("/", homepage1Router);
 app.use("/Cruise", cruisesRoutes);
 app.use("/tours", cruisesTours);
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
-
-// app.get('/', (req, res) => {
-//   res.render("homepage1")
-// })
-
-// app.get('/Cruise', (req, res) => {
-//   res.render("Cruise")
-// })
-
-// app.get('/Cruise1', (req, res) => {
-//   res.render("Cruise1")
-// });
+app.use("/admindashboard" , admindashboardRouter);
 
 
-// app.get('/flight', (req, res) => {
-//   res.render("flight")
-// })
-
-// app.get('/tours', (req, res) => {
-//   res.render("tours")
-// })
-
-// app.get('/login', (req, res) => {
-//   res.render("login")
-// })
-
-// app.get('/signup', (req, res) => {
-//   res.render("signup")
-// })
-
-// app.get('/admindashboard', (req, res) => {
-//   res.render("admindashboard")
-// })
-// app.get('/addAdmin', (req, res) => {
-//   res.render("addAdmin")
-// })
 
 // 404 page
 app.use((req, res) => {
