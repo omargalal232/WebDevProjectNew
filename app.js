@@ -5,20 +5,24 @@ const logger = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 
-const bcrypt= require ("bcryptjs");
+const bcrypt = require("bcryptjs");
 mongoose.connect(
-  "mongodb+srv://youssef:MIU12345@cluster1.4w0cahu.mongodb.net/DB?retryWrites=true&w=majority", { useNewUrlParser: true,
-  useUnifiedTopology: true,}
+  "mongodb+srv://youssef:MIU12345@cluster1.4w0cahu.mongodb.net/DB?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
 )
-.then((result) => {
-  app.listen(port, () => {
-    console.log(`app listening on http://localhost:${port}`);
-    
+
+
+  .then((result) => {
+    app.listen(port, () => {
+      console.log(`app listening on http://localhost:${port}`);
+
+    });
+  })
+  .catch((err) => {
+    console.log(err);
   });
-})
-.catch((err) => {
-  console.log(err);
-});
 
 
 
@@ -96,8 +100,8 @@ app.use("/login", loginRouter);
 //   res.render("addAdmin")
 // })
 
-  // 404 page
+// 404 page
 app.use((req, res) => {
   res.status(404).render('404', { users: (req.session.users === undefined ? "" : req.session.users) });
 });
-  
+
