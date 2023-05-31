@@ -12,7 +12,7 @@ const cities = require("./models/cities");
 const bcrypt = require("bcryptjs");
 mongoose.connect(
   "mongodb+srv://youssef:MIU12345@cluster1.4w0cahu.mongodb.net/DB?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
+  useNewUrlParser: true,
   useUnifiedTopology: true,
 }
 )
@@ -21,7 +21,7 @@ mongoose.connect(
   .then((result) => {
     app.listen(port, () => {
       console.log(`app listening on http://localhost:${port}`);
-      
+
     });
   })
   .catch((err) => {
@@ -59,6 +59,8 @@ const cruisesTours = require("./routes/tours");
 const signupRouter = require("./routes/signup");
 const loginRouter = require("./routes/login");
 const admindashboardRouter = require("./routes/admindashboard");
+const hotelRouter = require("./routes/hotel");
+
 // const admin_addAdminRouter = require(".routes/admin_addAdmin");
 // const admin_customersRouter = require(".routes/admin_customers");
 // const admin_dashboardRouter = require(".routes/admin_dashboard");
@@ -70,9 +72,9 @@ const admindashboardRouter = require("./routes/admindashboard");
 app.use("/", homepage1Router);
 
 app.get("/tours", (req, res) => {
- 
+
   // result = Array of objects inside mongo database
- 
+
   cities.find()
     .then((result) => {
       console.log(result);
@@ -80,23 +82,24 @@ app.get("/tours", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-}); 
+});
 app.use("/Cruise", cruisesRoutes);
 app.use("/tours", cruisesTours);
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
-app.use("/" , admindashboardRouter);
+app.use("/", admindashboardRouter);
+app.use("/hotel", hotelRouter);
 // app.use("/admin_addAdmin", admin_addAdminRouter);
 // app.use("/admin_customers", admin_customersRouter);
 // app.use("/admin_dashboard", admin_dashboardRouter);
 // app.use("/admin_reports", admin_reportsRouter);
 // app.use("/admin_tours", admin_toursRouter);
 
-	
-	// define Schema
-	
 
-	// a document instance
+// define Schema
+
+
+// a document instance
 
 // 404 page
 app.use((req, res) => {
