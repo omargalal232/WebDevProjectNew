@@ -11,7 +11,7 @@ const cities = require("./models/cities");
 
 const bcrypt = require("bcryptjs");
 mongoose.connect(
-  "mongodb+srv://yousefhany:hany2002@cluster1.zspsqcg.mongodb.net/test?retryWrites=true&w=majority", {
+  "mongodb+srv://youssef:MIU12345@cluster1.4w0cahu.mongodb.net/DB?retryWrites=true&w=majority", {
     useNewUrlParser: true,
   useUnifiedTopology: true,
 }
