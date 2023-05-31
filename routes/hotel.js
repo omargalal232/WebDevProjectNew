@@ -9,8 +9,8 @@ router.get("/hotel", (req, res) => {
     res.render("hotel", { users: req.session.users || null });
 });
 
-router.get("/hotelReserve", (req, res) => {
-    res.render('hotelReserve', { users: req.session.users || null });
+router.get("/hoteltitanic", (req, res) => {
+    res.render('hoteltitanic', { users: req.session.users || null });
 });
 
 router.get("/homepage1", (req, res) => {
