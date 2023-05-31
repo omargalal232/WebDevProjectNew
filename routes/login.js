@@ -13,7 +13,9 @@ router.get("/login", (req, res) => {
   res.render("login", { users: req.session.users || null });
 });
 
-
+router.get("/forgotPass", (req, res) => { 
+  res.render("forgotPass",{ users: req.session.users || null });
+});
 
 router.get('/homepage1', (req, res) => {
   res.render('homepage1', { users: req.session.users || "" });

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forgot Password</title>
+	<link rel="stylesheet" href="/css/nav.css">
+</head>
+<style>
+    .forgot-password-container {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.forgot-password-container h1 {
+	margin-top: 0;
+}
+
+.forgot-password-container form {
+	display: flex;
+	flex-direction: column;
+}
+
+.forgot-password-container label {
+	margin-bottom: 1px;
+	font-weight: bold;
+}
+
+.forgot-password-container input[type="email"] {
+	padding: 10px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.forgot-password-container button[type="submit"] {
+	background-color: red;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.forgot-password-container button[type="submit"]:hover {
+	background-color: red;
+}
+</style>
+<header>
+	<%- include("./partials/nav.ejs") %>
+</header>
+<br>
+<br>
+<br>
+<body>
+	<div class="forgot-password-container">
+		<h1>Forgot Password</h1>
+		<p>Enter your email address below.</p>
+		<form>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required>
+            <label for="email">reset password:</label>
+            <input type = "text" id="reset Password" name ="reset Password" required>
+            <label for="email">confirm password:</label>
+            <input type = "confirm" id="confirm Password" name ="confirm Password" required>            
+			<button type="submit">Reset Password</button>
+		</form>
+	</div>
+</body>
+</html>
