@@ -26,7 +26,7 @@ router.get("/admin_addAdmin", (req, res) => {
 
 // GET : /admin_customers
 router.get("/admin_customers", (req, res) => {
-    const { username } = req.session.users;
+    
     res.render("admin_customers",{ users: req.session.users || null });
 });
 
