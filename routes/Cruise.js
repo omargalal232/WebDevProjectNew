@@ -2,24 +2,19 @@ const express = require("express");
 const router = express.Router();
 const cruise = require("../controllers/cruise");
 
-
-// GET Cruises: /
 router.get("/", (req, res, next) => {
-    res.render("Cruise");
+    res.render("Cruise", { users: req.session.users || null });
 });
 
-
-// GET Cruises: 
 router.get("/Cruise", (req, res, next) => {
-    res.render("Cruise");
+    res.render("Cruise", { users: req.session.users || null });
 });
 
-// GET Cruises: details
 router.get("/Cruise1", (req, res, next) => {
-    res.render("Cruise1");
+    res.render("Cruise1", { users: req.session.users || null });
 });
 
-// POST Add Cruise: /addcruise
 router.post("/Cruise", cruise.AddCruise);
 
 module.exports = router;
+

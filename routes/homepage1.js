@@ -1,52 +1,40 @@
 const express = require("express");
 const router = express.Router();
 
-// GET homepage1: /
 router.get("/", (req, res, next) => {
-  res.render("homepage1");
+  res.render("homepage1", { users: req.session.users || null });
 });
 
-//app.get('/homepage1', function(req, res, next) {
-  // Render the homepage1.ejs 
-  //res.render('homepage1');
-//});
-
-
-// GET homepage1: /Cruise
-router.get("/Cruise", (req, res , next) => {
-  res.render("Cruise");
+router.get("/homepage1", (req, res) => {
+  res.render("homepage1", { users: req.session.users || null });
 });
 
+router.get("/Cruise", (req, res, next) => {
+  res.render("Cruise", { users: req.session.users || null });
+});
 
-
-// GET homepage1: /hotel
 router.get("/hotel", (req, res, next) => {
-  res.render("hotel");
+  res.render("hotel", { users: req.session.users || null });
 });
 
-// GET : /tours
 router.get("/tours", (req, res, next) => {
-  res.render("tours");
+  res.render("tours", { users: req.session.users || null });
 });
 
-// GET homepage1: /flight
 router.get("/flight", (req, res, next) => {
-  res.render("flight");
+  res.render("flight", { users: req.session.users || null });
 });
 
-// GET homepage1: /login
 router.get("/login", (req, res, next) => {
-  res.render("login");
+  res.render("login", { users: req.session.users || null });
 });
 
-// GET homepage1: /signup
 router.get("/signup", (req, res, next) => {
-  res.render("signup");
+  res.render("signup", { users: req.session.users || null });
 });
-
-
 
 module.exports = router;
+
 
 
 
