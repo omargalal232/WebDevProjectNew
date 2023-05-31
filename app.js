@@ -28,28 +28,6 @@ mongoose.connect(
     console.log(err);
   });
 
-
-
-
-
-   
-
-
-    
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
 const { request } = require("http");
 
 const app = express();
@@ -114,25 +92,11 @@ app.use("/" , admindashboardRouter);
 // app.use("/admin_reports", admin_reportsRouter);
 // app.use("/admin_tours", admin_toursRouter);
 
-
-       
-
-
-
-
 	
 	// define Schema
 	
 
 	// a document instance
-	
-	
-
-
- 
- 
- 
-     
 
 // 404 page
 app.use((req, res) => {
