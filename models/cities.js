@@ -13,8 +13,11 @@ const citySchema = new mongoose.Schema({
   
 }, { timestamps: true });
 
+      
 const cities = mongoose.model('cities', citySchema);
+const city = new cities({ name: 'Introduction to Mongoose', description:'hi'});
 
+      // save model to database
+      city.save();
 module.exports = cities;
 
-var city = new cities({ name: 'Introduction to Mongoose', description:'hi' });

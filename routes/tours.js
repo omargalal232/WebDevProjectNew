@@ -10,7 +10,8 @@ router.get("/", (req, res, next) => {
 
 router.get("/",city.createdoc);
 // GET Cruises: 
-router.get("/tours", (req, res, next) => {
+router.get("/", (req, res, next) => {
+
     res.render("tours");
 });
 
@@ -21,7 +22,7 @@ router.post("/",function(req, res) {
 
 
 
-    var city = [{ name: 'Mongoose Tutorial', description:'hi' },
+    var city = [{ name: 'Mongoose Tl', description:'hi' },
     {name: 'suez', description:'hi' }
    ];
   

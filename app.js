@@ -21,7 +21,7 @@ mongoose.connect(
   .then((result) => {
     app.listen(port, () => {
       console.log(`app listening on http://localhost:${port}`);
-
+      
     });
   })
   .catch((err) => {
@@ -87,7 +87,22 @@ const admindashboardRouter = require("./routes/admindashboard");
 // const admin_reportsRouter = require(".routes/admin_reports");
 // const admin_toursRouter = require(".routes/admin_tours");
 // Routes
+
+
 app.use("/", homepage1Router);
+
+app.get("/tours", (req, res) => {
+ 
+  // result = Array of objects inside mongo database
+ 
+  cities.find()
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}); 
 app.use("/Cruise", cruisesRoutes);
 app.use("/tours", cruisesTours);
 app.use("/signup", signupRouter);
@@ -105,29 +120,19 @@ app.use("/" , admindashboardRouter);
 
 
 
+	
+	// define Schema
+	
+
+	// a document instance
+	
+	
 
 
-
-
+ 
+ 
+ 
      
-                const createdoc=async ()=> {
-                    try{
-                    const city=new cities[{
-                    name:"alex",
-                    description:"hi"
-                    
-                    
-                    },
-                
-                   { name:"suez",
-                    description:"hi"}
-                ]
-                    const result= await city.save();
-                    }catch(err){
-                      console.log(err);
-                    }
-                    
-                    };
 
 // 404 page
 app.use((req, res) => {
