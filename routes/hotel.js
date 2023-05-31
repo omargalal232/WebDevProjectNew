@@ -13,6 +13,10 @@ router.get("/hoteltitanic", (req, res) => {
     res.render('hoteltitanic', { users: req.session.users || null });
 });
 
+router.get("/hotelhilton", (req, res) => {
+    res.render('hotelhilton', { users: req.session.users || null });
+});
+
 router.get("/homepage1", (req, res) => {
     res.render("homepage1", { users: req.session.users || "" });
 });
