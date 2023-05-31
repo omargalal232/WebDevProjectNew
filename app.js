@@ -5,9 +5,13 @@ const logger = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 
+
+const cities = require("./models/cities");
+
+
 const bcrypt = require("bcryptjs");
 mongoose.connect(
-  "mongodb+srv://youssef:MIU12345@cluster1.4w0cahu.mongodb.net/DB?retryWrites=true&w=majority", {
+  "mongodb+srv://yousefhany:hany2002@cluster1.zspsqcg.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true,
   useUnifiedTopology: true,
 }
@@ -23,6 +27,25 @@ mongoose.connect(
   .catch((err) => {
     console.log(err);
   });
+
+
+
+
+
+   
+
+
+    
+   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -67,6 +90,34 @@ app.use("/login", loginRouter);
 app.use("/admindashboard" , admindashboardRouter);
 
 
+       
+
+
+
+
+
+
+
+
+     
+                const createdoc=async ()=> {
+                    try{
+                    const city=new cities[{
+                    name:"alex",
+                    description:"hi"
+                    
+                    
+                    },
+                
+                   { name:"suez",
+                    description:"hi"}
+                ]
+                    const result= await city.save();
+                    }catch(err){
+                      console.log(err);
+                    }
+                    
+                    };
 
 // 404 page
 app.use((req, res) => {

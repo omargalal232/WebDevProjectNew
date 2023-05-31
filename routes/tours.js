@@ -1,36 +1,51 @@
 const express = require("express");
 const router = express.Router();
+const city = require("../controllers/cities");
 
-// GET tours: /
+const cities = require("../models/cities");
+// GET Cruises: /
 router.get("/", (req, res, next) => {
-    res.send("tours");
+    res.render("tours");
 });
 
-// GET homepage: /
-router.get("/homepage1", (req, res, next) => {
-    res.send("homepage1");
-});
-
-// GET hotels: /hotel
-router.get("/hotel", (req, res, next) => {
-    res.send("hotel");
-});
-
-// GET tours: /tours
+router.get("/",city.createdoc);
+// GET Cruises: 
 router.get("/tours", (req, res, next) => {
-    res.send("tours");
-});
-
-// GET cruise: /cruise
-router.get("/Cruise", (req, res, next) => {
-    res.send("cruise");
-});
-
-// GET flight: /flight
-router.get("/flight", (req, res, next) => {
-    res.send("flight");
+    res.render("tours");
 });
 
 
+
+
+router.post("/",function(req, res) {
+
+
+
+    var city = [{ name: 'Mongoose Tutorial', description:'hi' },
+    {name: 'suez', description:'hi' }
+   ];
+  
+   cities.insertMany(city, function(err, result) {
+
+    city.save
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result);
+    }
+  });
+  
+  
+  
+  });
+
+
+
+
+
+
+
+// POST Add Cruise: /addcruise
+router.post("/tours", city.Addcity);
 
 module.exports = router;
