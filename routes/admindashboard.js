@@ -6,6 +6,10 @@ router.get("/", (req, res, next) => {
     res.render("admindashboard");
 });
 
+router.get("/admindashboard", (req, res) => {
+    res.render("admindashboard");
+});
+
 // GET : /admin_dashboard
 router.get("/admin_dashboard", (req, res, next) => {
     res.render("admin_dashboard");
