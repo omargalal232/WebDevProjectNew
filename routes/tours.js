@@ -3,13 +3,15 @@ const router = express.Router();
 const city = require("../controllers/cities");
 
 const cities = require("../models/cities");
-// GET Cruises: /
-router.get("/", (req, res, next) => {
-    res.render("tours");
-});
+// GET tours: /
+// router.get("/", (req, res, next) => {
+//     res.render("tours");
+// });
+
+
 
 router.get("/",city.createdoc);
-// GET Cruises: 
+// GET tours: 
 router.get("/", (req, res, next) => {
 
     res.render("tours");
