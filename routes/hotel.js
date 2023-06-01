@@ -25,6 +25,14 @@ router.get("/hotelShtigenBerger", (req, res) => {
     res.render('hotelShtigenBerger', { users: req.session.users || null });
 });
 
+router.get("/hotelmakadibay", (req, res) => {
+    res.render('hotelmakadibay', { users: req.session.users || null });
+});
+
+router.get("/hotelkempinski", (req, res) => {
+    res.render('hotelkempinski', { users: req.session.users || null });
+});
+
 router.get("/homepage1", (req, res) => {
     res.render("homepage1", { users: req.session.users || "" });
 });
