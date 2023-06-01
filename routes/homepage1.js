@@ -33,6 +33,18 @@ router.get("/signup", (req, res, next) => {
   res.render("signup", { users: req.session.users || null });
 });
 
+router.get("/toursdahab", (req, rest) => {
+  res.render("toursdahab", { users: req.session.users || null });
+});
+
+router.get("/toursluxor", (req, res) => {
+  res.render("toursluxor", { users: req.session.users || null });
+});
+
+router.get("/tourshurghada", (req, res) => {
+  res.render("tourshurghada", { users: req.session.users || null });
+});
+
 module.exports = router;
 
 
