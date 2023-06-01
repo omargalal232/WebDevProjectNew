@@ -21,6 +21,10 @@ router.get("/hotelmariot", (req, res) => {
     res.render('hotelmariot', { users: req.session.users || null });
 });
 
+router.get("/hotelShtigenBerger", (req, res) => {
+    res.render('hotelShtigenBerger', { users: req.session.users || null });
+});
+
 router.get("/homepage1", (req, res) => {
     res.render("homepage1", { users: req.session.users || "" });
 });
