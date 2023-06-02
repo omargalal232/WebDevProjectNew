@@ -80,6 +80,10 @@ form {
     margin: 0 auto;
 }
 
+button {
+    position: auto;
+}
+
 label {
     display: block;
     margin-bottom: 5px;
@@ -97,7 +101,7 @@ select {
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: red;
     color: #fff;
     border: none;
     padding: 10px;
@@ -107,7 +111,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #3e8e41;
+    background-color: black;
 }
 
 h2.cairo {

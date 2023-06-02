@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="/css/signup.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <title>Sign Up</title>
-
   <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
   <script src="/js/ajax-un.js"></script>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <script>
-
-
     function validateName(field) {
       if (field == "") {
         document.getElementById("nameErr").innerHTML =
@@ -25,7 +19,6 @@
         return true;
       }
     }
-
     function validateUsername(field) {
       if (field == "") {
         document.getElementById("UserNameErr").innerHTML =
@@ -35,9 +28,7 @@
         document.getElementById("UserNameErr").innerHTML = "";
         return true;
       }
-
     }
-
     function validateEmail(field) {
       if (field === "") {
         document.getElementById("EmailErr").innerHTML =
@@ -52,7 +43,6 @@
         return true;
       }
     }
-
     function validateNumber(field) {
       if (field === "") {
         document.getElementById("NumberErr").innerHTML =
@@ -67,7 +57,6 @@
         return true;
       }
     }
-
     function validatePassword(field1, field2) {
       let valid = true;
       if (field1 == "") {
@@ -86,7 +75,6 @@
       }
       return valid;
     }
-
     function validate(form) {
       let fail = false;
       fail = fail || !validateName(form.Name.value);
