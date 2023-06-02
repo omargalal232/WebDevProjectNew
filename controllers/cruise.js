@@ -21,25 +21,12 @@ const AddCruise = (req, res) => {
     });
 };
 
-const createdoc=async()=>{
-  try{
-  const city=new cities({
-  name:"alex",
-  description:"alex is"
-  
-  
-  })
-  const result= await city.save();
-  }catch(err){
-    console.log(err);
-  }
-  
-  }
+
   
 
 
 module.exports = {
   AddCruise: AddCruise,
-  createdoc:createdoc
+
 };
 

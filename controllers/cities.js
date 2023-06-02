@@ -1,9 +1,9 @@
-const city = require("../models/cities");
+const city = require("../models/city");
 
 const bcrypt= require ("bcryptjs");
 
 const Addcity = (req, res) => {
-    const city = new cities({
+    const city = new city({
         name: req.body.name,
         description: req.body.description,
         
@@ -19,41 +19,27 @@ const Addcity = (req, res) => {
         res.render("tours");
       });
   };
-  const getcities = async (req, res, next) => {
-    //res.send("All Products Test Message");
-    const cities = city.find({}).then((cities) => {
-      res.json(cities);
-    }).catch((err) => {
-      next(err);
-    });
-  
+
+  const getcity = (req, res) => {
+    city.find()
+      .then((result) => {
+        console.log("Database is retrieved");
+        console.log(result);
+        res.render("tours", { cities: result, users: req.session.users|| null });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.render("tours", { cities: [], users: req.session.users || null });
+      });
   };
 
-  const createdoc=async ()=> {
-    try{
-    const city=new cities[{
-    name:"alex",
-    description:"hi"
-    
-    
-    },
 
-   { name:"suez",
-    description:"hi"}
-]
-    const result= await city.save();
-    }catch(err){
-      console.log(err);
-    }
-    
-    }
   
 
 
   module.exports = {
     Addcity:Addcity,
-getcities:getcities,
-createdoc:createdoc
+getcity:getcity
   };
     
   

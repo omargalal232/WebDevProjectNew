@@ -1,130 +1,135 @@
 /* Tour List Section */
 .tour-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 .tour-list article {
-    width: 300px;
-    margin: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+  width: 300px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+  height: max-content;
+  
+  block-size: fit-content
+
 }
 
 .tour-list img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .tour-list h3 {
-    font-size: 1.5rem;
-    margin: 10px;
+  font-size: 1.5rem;
+  margin: 10px;
 }
 
 .tour-list p {
-    margin: 10px;
-    line-height: 1.5;
+  margin: 10px;
+  line-height: 1.5;
+  overflow:visible;
 }
 
 .tour-list .btn {
-    display: block;
-    margin: 10px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position:sticky;
 }
 
 .tour-list .btn:hover {
-    background-color: #0069d9;
+  background-color: #0069d9;
 }
 
 /* Footer */
 footer {
-    background-color: #f8f9fa;
-    padding: 20px;
-    text-align: center;
-    margin-top: 50px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
 }
 
 body {
-    background: url("C:/Users/Omar Galal/Desktop/New/bg.jpg");
-    background-size: cover;
+  background: url("C:/Users/Omar Galal/Desktop/New/bg.jpg");
+  background-size: cover;
 }
 
 
 
 .hi3 {
-    padding-top: 10px;
-    padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .f1 {
-    background-color: rgb(139, 172, 199);
+  background-color: rgb(139, 172, 199);
 }
 
 nav {
-    background-color: #fff;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    text-align: center;
-  }
-  
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  text-align: center;
+}
 
-  
-  .filter-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
-  }
-  
-  .filter-container .dropdowns {
-    display: flex;
-    margin-left: 10px;
-  }
-  
-  .filter-container .dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 10px;
-  }
-  
-  .filter-container .dropbtn {
-    background-color: #fff;
-    color: #333;
-    padding: 10px;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .filter-container .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    z-index: 1;
-  }
-  
-  .filter-container .dropdown-content a {
-    color: #333;
-    padding: 5px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-  }
-  
-  .filter-container .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
+
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.filter-container .dropdowns {
+  display: flex;
+  margin-left: 10px;
+}
+
+.filter-container .dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.filter-container .dropbtn {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.filter-container .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.filter-container .dropdown-content a {
+  color: #333;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.filter-container .dropdown:hover .dropdown-content {
+  display: block;
+}
