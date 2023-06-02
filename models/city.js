@@ -33,7 +33,7 @@ const city = mongoose.model('city', citySchema);
   
   const cityy = new city({ 
     name: 'Cairo',
-  description: 'Cairo, Egypt’s sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts.dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj',
+  description: 'Cairo, Egypt’s sprawling capital, is set on the Nile River. At its heart is Tahrir Square and the vast Egyptian Museum, a trove of antiquities including royal mummies and gilded King Tutankhamun artifacts.',
   image:'https://serving.photos.photobox.com/490976834050f2044a0c18851068dacf868ca4afe4c258af7722c01e9ad7c1581f97b4a6.jpg'
   }
   
