@@ -27,6 +27,7 @@
     <main>
         <h2 class="text-center py-4">Tours</h2>
         <section class="tour-list">
+
             <% for (let i = 0; i < cities.length; i++) { %>
                 <article class="cairo">
                   <img src="<%= cities[i].image %>" alt="Tour 1">
@@ -36,7 +37,6 @@
                   <a href="#" class="btn">Book Now</a>
                 </article>
               <% } %>
-
         </section>
     </main>
     <footer class="f1">
@@ -44,14 +44,16 @@
     </footer>
 
     <script>
-        // Adjust container heights dynamically based on description length
-        const tourDescriptions = document.querySelectorAll('.tour-description');
-        tourDescriptions.forEach((description) => {
-            description.style.height = "auto";
-            const descriptionHeight = description.offsetHeight;
-            description.style.height = descriptionHeight + "px";
+        window.addEventListener('DOMContentLoaded', () => {
+            const tourDescriptions = document.querySelectorAll('.tour-description');
+            tourDescriptions.forEach((description) => {
+                description.style.height = "auto";
+                const descriptionHeight = description.offsetHeight;
+                description.style.height = descriptionHeight + "px";
+            });
         });
     </script>
+    
 
 </body>
 
