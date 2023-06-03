@@ -8,15 +8,6 @@ const cairo = require("../controllers/cairo");
 
 });
 
-
-
-router.get("/cairotours", (req, res) => {
-  res.render("cairotours");
-
-});
-
-
-
 router.get("/get", cairo.getcairo);
 
 
