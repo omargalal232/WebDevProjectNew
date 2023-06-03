@@ -58,9 +58,6 @@ const signupRouter = require("./routes/signup");
 const loginRouter = require("./routes/login");
 const admindashboardRouter = require("./routes/admindashboard");
 const cairoRouter=require("./routes/cairotours");
-
-
-
 const hotelRouter = require("./routes/hotel");
 
 app.use("/", homepage1Router);
@@ -70,6 +67,7 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/", admindashboardRouter);
 app.use("/cairotours", cairoRouter);
+app.use("/hotel", hotelRouter)
 
 
 // Move the 404 error handler down, after the chatbot routes

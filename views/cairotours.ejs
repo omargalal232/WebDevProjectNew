@@ -73,20 +73,22 @@
 
         <div class="tour-row">
            
+          <% for (let i = 0; i < cairotours.length; i++) { %>
             <div class="tour-box">
-                <img  style="height: 200px; width: 350px;" src="<%= cairotours[i].image %>s" alt="">
-                <h4>Private Full-Day Tour Visiting Giza Pyramids</h4>
-                
-                <div class="tour-details">
-                    <p>Duration: 5 hours</p>
-                    <p>Date: 6/5/2023</p>
-                    <h4>EGP 550 per adult</h4>
-                </div>
-               
-                <a href=".html"><button class="view-tour">View Tour</button></a>
-
+              <img style="height: 200px; width: 350px;" src="<%= cairotours[i].image %>" alt="">
+              <h4><%= cairotours[i].name %></h4>
+          
+              <div class="tour-details">
+                <p>Duration: <%= cairotours[i].duration %> hours</p>
+                <p>Date: <%= cairotours[i].date.toLocaleDateString() %></p>
+                <h4>EGP <%= cairotours[i].price %> per adult</h4>
+              </div>
+          
+              <a href=""><button class="view-tour">View Tour</button></a>
             </div>
-            <div  style="margin-right:6px;" class="tour-box">
+          <% } %>
+          
+            <!-- <div  style="margin-right:6px;" class="tour-box">
                 <img  style="height: 200px; width: 350px;" src="download (7).jpeg" alt="">
                 <h4>Full Day Tour Visiting Coptic and Islamic Cairo</h4>
                 
@@ -159,7 +161,7 @@
             
         </div>
         
-          
+           -->
           
     </section>
     <div id="reviews">
