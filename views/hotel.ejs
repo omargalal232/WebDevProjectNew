@@ -173,13 +173,17 @@
     </svg> </h3>
   <section class="hotel_deals">
     <div class="hotel-row">
-      <% for (let i = 0; i < hotels.length; i++) { %>
+      <% for (let i=0; i < hotels.length; i++) { %>
         <div class="hotel-box">
-          <h3><%= hotels[i].name %></h3>
+          <h3>
+            <%= hotels[i].name %>
+          </h3>
           <a href="#"><img style="width: 300px; height: 250px;" src="<%= hotels[i].image %>" alt=""></a>
           <div class="hotel-details">
             <p>Details:</p>
-            <p><%= hotels[i].description %></p>
+            <p>
+              <%= hotels[i].description %>
+            </p>
             <p>This offer for double bedroom Per Night</p>
           </div>
           <div class="hotel-price">
@@ -187,10 +191,10 @@
           </div>
           <a href="/hotel/hoteltitanic"><button class="view-hotel">View deal</button></a>
         </div>
-      <% } %>
-      
+        <% } %>
 
-      <!-- <div class="hotel-box">
+
+          <!-- <div class="hotel-box">
         <h3>ShtigenBerger</h3>
         <a href="#"><img style="width: 300px; height: 250px;" src="/images/sofital.jpg" alt=""></a>
         <div style="padding-left: 70px;" class="hotel-details">
@@ -365,7 +369,7 @@
       </div> -->
     </div>
   </section>
- 
+
 
 
 
