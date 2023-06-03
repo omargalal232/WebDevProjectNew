@@ -52,22 +52,29 @@
     <h2>Featured Cruise Deals</h2>
     <section class="cruise-deals">
       <div class="cruise-row">
-        <div class="cruise-box">
-          <div class="cruise-info">
-            <img src="/images/yacht.jpg" class="cruise-image">
-            <div class="cruise-details">
-              <h3>6 Night Nile River Cruise in Egypt</h3>
-              <p>Ship: Nile Cruise</p>
-              <p>Suite Sailing Date: 4/15/2023</p>
-              <p>Departs: Luxor</p>
+        <% for (let i = 0; i < cruises.length; i++) { %>
+          <div class="cruise-box">
+            <div class="cruise-info">
+              <img src="<%= cruises[i].image %>" class="cruise-image">
+              <div class="cruise-details">
+                <h3><%= cruises[i].name %></h3>
+                <p>Ship: <%= cruises[i].boarding %></p>
+                <p>Suite Sailing Date: <%= cruises[i].date %></p>
+                <p>Departs: <%= cruises[i].destination %></p>
+                
+              </div>
             </div>
+            <div class="cruise-price">
+              <p>EGP <%= cruises[i].price %><p>
+            
+                <p>Duration in Days: <%= cruises[i].duration %></p>
+      
+               <p>Seats : <%= cruises[i].seatsavaliable %></p>
+            </div>
+            <a href="/Cruise/Cruise<%= i+1 %>"><button class="view-cruise">View Cruise</button></a>
           </div>
-          <div class="cruise-price">
-            <p><span class="cruise-sale-price">EGP 71,375</span> EGP 17,577</p>
-          </div>
-          <a href="/Cruise/Cruise1"><button class="view-cruise">View Cruise</button></a>
-        </div>
-      </div>
+        <% } %>
+        
       <br>
     </section>
 
