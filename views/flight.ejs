@@ -22,55 +22,29 @@
 
     </div>
     <br>
-    <form>
-        <label for="from">From:</label>
-        <select id="from" name="from">
-            <option value="Cairo">Cairo</option>
-            <option value="Alexandria">Alexandria</option>
-            <option value="Luxor">Luxor</option>
-            <option value="Aswan">Aswan</option>
-            <option value="Sharm El-Sheikh">Sharm El-Sheikh</option>
-        </select>
+    <form action="/flight/search" method="post">
+        <input type="text" name="searchQuery" placeholder="Search flights">
+        <button type="submit">Search</button>
+      </form>
+      <% if (flights.length > 0) { %>
+        <% for (let i = 0; i < flights.length; i++) { %>
+          <!-- Display flight information -->
+          <div class="flight-box">
+            <h3><%= flights[i].boarding %> - Flight <%= flights[i].flightnumber %></h3>
+            <p>Duration: <%= flights[i].duration %> hours</p>
+            <p>Price: <%= flights[i].price %> EGP</p>
+            <p>Tickets Available: <%= flights[i].ticketsavailable %></p>
+            <img src="<%= flights[i].image %>" alt="Flight Image">
+            <a href="/flight/book/<%= flights[i]._id %>">Book Now</a>
+          </div>
+        <% } %>
+      <% } else { %>
+        <!-- Display "Flight not found" message -->
+        <p>No flights found for "<%= searchQuery %>".</p>
+      <% } %>
 
-        <label for="to">To:</label>
-        <select id="to" name="to">
-            <option value="London">London</option>
-            <option value="Paris">Paris</option>
-            <option value="Madrid">Madrid</option>
-            <option value="Rome">Rome</option>
-            <option value="Berlin">Berlin</option>
-        </select>
-
-        <label for="depart">Depart:</label>
-        <select id="depart" name="depart">
-            <option value="Thu, 4/6">Thu, 4/6</option>
-            <option value="Fri, 4/7">Fri, 4/7</option>
-            <option value="Sat, 4/8">Sat, 4/8</option>
-            <option value="Sun, 4/9">Sun, 4/9</option>
-            <option value="Mon, 4/10">Mon, 4/10</option>
-        </select>
-
-        <label for="return">Return:</label>
-        <select id="return" name="return">
-            <option value="Thu, 4/13">Thu, 4/13</option>
-            <option value="Fri, 4/14">Fri, 4/14</option>
-            <option value="Sat, 4/15">Sat, 4/15</option>
-            <option value="Sun, 4/16">Sun, 4/16</option>
-            <option value="Mon, 4/17">Mon, 4/17</option>
-        </select>
-
-        <label for="travelers">Travelers:</label>
-        <select id="travelers" name="travelers">
-            <option value="1, Economy">1, Economy</option>
-            <option value="2, Economy">2, Economy</option>
-            <option value="3, Economy">3, Economy</option>
-            <option value="1, Business">1, Business</option>
-            <option value="2, Business">2, Business</option>
-        </select>
-
-        <input type="submit" value="Submit">
-    </form>
-    <section id="deals">
+    
+      <section id="deals">
         <h2>Great deals from Egypt</h2>
         <p>We’ve searched 100s of deals recently found by travelers.</p>
         <div class="row">
