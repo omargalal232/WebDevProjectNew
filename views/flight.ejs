@@ -11,89 +11,99 @@
 </head>
 <header>
     <%- include("./partials/nav.ejs") %>
-  </header>
+</header>
+
 <body>
     <div>
         <h2 class="cairo">FLIGHTS</h2>
         <h2 class="c">high above the sky</h2>
-
         <img class="d-block w-100" src="/images/flight.jpg" alt="Hotel 2">
-
-
     </div>
     <br>
-    <form action="/flight/search" method="post">
-        <input type="text" name="searchQuery" placeholder="Search flights">
-        <button type="submit">Search</button>
-      </form>
-      <% if (flights.length > 0) { %>
-        <% for (let i = 0; i < flights.length; i++) { %>
-          <!-- Display flight information -->
-          <div class="flight-box">
-            <h3><%= flights[i].boarding %> - Flight <%= flights[i].flightnumber %></h3>
-            <p>Duration: <%= flights[i].duration %> hours</p>
-            <p>Price: <%= flights[i].price %> EGP</p>
-            <p>Tickets Available: <%= flights[i].ticketsavailable %></p>
-            <img src="<%= flights[i].image %>" alt="Flight Image">
-            <a href="/flight/book/<%= flights[i]._id %>">Book Now</a>
-          </div>
-        <% } %>
-      <% } else { %>
-        <!-- Display "Flight not found" message -->
-        <p>No flights found for "<%= searchQuery %>".</p>
-      <% } %>
+    <form onsubmit="searchFlights(event)" method="post" action="/flight/get">
+        <label for="from">From:</label>
+        <input type="text" id="from" name="from">
 
-    
-      <section id="deals">
-        <h2>Great deals from Egypt</h2>
-        <p>We’ve searched 100s of deals recently found by travelers.</p>
-        <div class="row">
-            <div class="deal">
-                <h3>Cairo, Egypt (CAI) - Hurghada, Egypt (HRG)</h3>
-                <p>Thu, 4/6 - Thu, 4/13</p>
-                <p>EgyptAir - Roundtrip, Economy</p>
-                <p>EGP 1,500</p>
-            </div>
-            <div class="deal">
-                <h3>Cairo, Egypt (CAI) - Alexandria, Egypt (ALY)</h3>
-                <p>Thu, 4/6 - Thu, 4/13</p>
-                <p>EgyptAir - Roundtrip, Economy</p>
-                <p>EGP 1,700</p>
-            </div>
+        <label for="to">to:</label>
+        <input type="text" id="to" name="to">
+
+       
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price">
+
+        <button type="submit">Search</button>
+    </form>
+
+    <section id="search-results">
+        <% if (flights && flights.length > 0) { %>
+        <h2>Search Results</h2>
+        <% flights.forEach((flight) => { %>
+        <div class="flight-result">
+            <h3><%= flight.from %> (To: <%= flight.to %>)</h3>
+            <p>Price: <%= flight.price %></p>
         </div>
-        <div class="row">
-            <div class="deal">
-                <h3>Cairo, Egypt (CAI) - Sharm El-Sheikh, Egypt (SSH)</h3>
-                <p>Thu, 4/6 - Thu, 4/13</p>
-                <p>EgyptAir - Roundtrip, Economy</p>
-                <p>EGP 2,000</p>
-            </div>
-            <div class="deal">
-                <h3>Cairo, Egypt (CAI) - Luxor, Egypt (LXR)</h3>
-                <p>Thu, 4/6 - Thu, 4/13</p>
-                <p>EgyptAir - Roundtrip, Economy</p>
-                <p>EGP 2,200</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="deal">
-                <h3>Sharm El-Sheikh, Egypt (SSH) - Hurghada, Egypt (HRG)</h3>
-                <p>Thu, 4/6 - Thu, 4/13</p>
-                <p>EgyptAir - Roundtrip, Economy</p>
-                <p>EGP 2,500</p>
-            </div>
-            <div class="deal">
-                <h3>Alexandria, Egypt (ALY) - Sharm El-Sheikh, Egypt (SSH)</h3>
-                <p>Thu, 4/6 - Thu, 4/13</p>
-                <p>EgyptAir - Roundtrip, Economy</p>
-                <p>EGP 2,800</p>
-            </div>
-        </div>
+        <% }) %>
+        <% } else { %>
+        <p>No results found.</p>
+        <% } %>
     </section>
 
+    
+
 </body>
+
 <footer>
     <p><i class="fa fa-plane" aria-hidden="true"></i> &copy; 2023 GoEgy. All Rights Reserved.</p>
 </footer>
+
+<script>
+    function searchFlights(event) {
+        event.preventDefault();
+
+        const to = document.getElementById('to').value;
+        const from = document.getElementById('from').value;
+        const price = document.getElementById('price').value;
+
+        const searchParams = {
+            price: price,
+            from: from,
+            to: to,
+        };
+
+        // Make an AJAX request to call the search function in your server-side controller
+        fetch('/flight/get', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(searchParams),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                renderSearchResults(data.flights);
+            })
+            .catch((error) => {
+                console.log(error);
+                renderSearchResults([]);
+            });
+    }
+
+    function renderSearchResults(flights) {
+        const searchResultsSection = document.getElementById('search-results');
+        let html = '';
+        if (flights && flights.length > 0) {
+            html += '<h2>Search Results</h2>';
+            flights.forEach((flight) => {
+                html += '<div class="flight-result">';
+                html += '<h3>' + flight.from + ' (To: ' + flight.to + ')</h3>';
+                html += '<p>Price: ' + flight.price + '</p>';
+                html += '</div>';
+            });
+        } else {
+            html += '<p>No results found.</p>';
+        }
+        searchResultsSection.innerHTML = html;
+    }
+</script>
 
 </html>

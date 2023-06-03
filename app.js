@@ -50,7 +50,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+const flightRouter = require("./routes/flight");
 const homepage1Router = require("./routes/homepage1");
 const cruisesRoutes = require("./routes/Cruise");
 const ToursRouter = require("./routes/tours");
@@ -60,6 +60,8 @@ const admindashboardRouter = require("./routes/admindashboard");
 const cairoRouter=require("./routes/cairotours");
 const hotelRouter = require("./routes/hotel");
 
+
+app.use("/flight", flightRouter);
 app.use("/", homepage1Router);
 app.use("/Cruise", cruisesRoutes);
 app.use("/tours", ToursRouter);
