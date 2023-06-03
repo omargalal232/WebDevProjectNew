@@ -1,0 +1,200 @@
+<script>
+    const cairotours = require("./models/cairotours");
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="tours1.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/nav.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/cairotours.css">
+
+    <title>Cairo tours</title>
+
+</head>
+
+<%- include("./partials/nav.ejs") %>
+<body>
+   
+
+ <div>
+    <h2 class="cairo">CAIRO</h2>
+    <h2 class="c">the city that never sleeps</h2>
+    
+    <img style="width: 100%; height: 350px;" src="" alt="">
+    
+
+</div>
+    
+  <div class="Attractions">
+    <h1>Top Attractions in Cairo  <a href="https://www.google.com/maps/place/Cairo,+Cairo+Governorate/@30.0594885,31.2584644,13z/data=!3m1!4b1!4m6!3m5!1s0x14583fa60b21beeb:0x79dfb296e8423bba!8m2!3d30.0444196!4d31.2357116!16zL20vMDF3MnY"><span id="maps"> <i class='fas fa-map-marker-alt' style='font-size:24px'></i></span></a></h1>
+   
+    </div>
+
+  
+    <br>
+  <div class="row">
+  
+    
+    <div class="column">
+
+      <img class="img" src="pyramids1.jpg" alt="Snow" >
+    
+    </div>
+    <div class="column">
+      <img class="img" src="nile1.jpeg" alt="Forest" >
+    </div>
+    <div class="column">
+      <img class="img" src="egymuseum.jpg" alt="Mountains">
+    </div>
+    <div class="column">
+      <img class="img" src="citadel.jpg" alt="Mountains">
+    </div>
+    </div>
+  <br>
+ 
+    <h1 class="tours">Tours in Cairo</h1>
+    <br>
+
+
+
+        
+
+
+    <section class="tour-deals">
+
+
+        <div class="tour-row">
+           
+            <div class="tour-box">
+                <img  style="height: 200px; width: 350px;" src="<%= cairotours[i].image %>s" alt="">
+                <h4>Private Full-Day Tour Visiting Giza Pyramids</h4>
+                
+                <div class="tour-details">
+                    <p>Duration: 5 hours</p>
+                    <p>Date: 6/5/2023</p>
+                    <h4>EGP 550 per adult</h4>
+                </div>
+               
+                <a href=".html"><button class="view-tour">View Tour</button></a>
+
+            </div>
+            <div  style="margin-right:6px;" class="tour-box">
+                <img  style="height: 200px; width: 350px;" src="download (7).jpeg" alt="">
+                <h4>Full Day Tour Visiting Coptic and Islamic Cairo</h4>
+                
+                <div class="tour-details">
+                    <p>Duration: 8 hours</p>
+                    <p>Date: 23/6/2023</p>
+                    <h4>EGP 600 per adult</h4>
+                </div>
+               
+                <a href=".html"><button class="view-tour">View Tour</button></a>
+
+            </div>
+            <div class="tour-box">
+                <img  style="height: 200px; width: 350px;" src="download (8).jpeg" alt="">
+                <h4>Guided Visit to Cairo's Khan el-Khalili Market</h4>
+                
+                <div class="tour-details">
+                    <p>Duration: 6 hours</p>
+                    <p>Date: 12/5/2023</p>
+                    <h4>EGP 300 per adult</h4>
+                </div>
+               
+                <a href=".html"><button class="view-tour">View Tour</button></a>
+
+            </div>       
+            
+        </div>
+        
+        <div class="tour-row">
+           
+            <div class="tour-box">
+                <img  style="height: 200px; width: 350px;" src="abdeen.jpeg" alt="">
+                <h4>Abdeen Palace Museum</h4>
+                
+                <div class="tour-details">
+                    <p>Duration: 4 hours</p>
+                    <p>Date: 13/5/2023</p>
+                    <h4>EGP 550 per adult</h4>
+                </div>
+               
+                <a href=".html"><button class="view-tour">View Tour</button></a>
+
+            </div>
+            <div  style="margin-right:6px;" class="tour-box">
+                <img  style="height: 200px; width: 350px;" src="barron1.jpg" alt="">
+                <h4>Baron Empain Palace</h4>
+                
+                <div class="tour-details">
+                    <p>Duration: 2 hours</p>
+                    <p>Date: 23/6/2023</p>
+                    <h4>EGP 600 per adult</h4>
+                </div>
+               
+                <a href=".html"><button class="view-tour">View Tour</button></a>
+
+            </div>
+            <div class="tour-box">
+                <img  style="height: 200px; width: 350px;" src="mosque.jpg" alt="">
+                <h4>Mosque of Muhammad Ali</h4>
+                
+                <div class="tour-details">
+                    <p>Duration: 3 hours</p>
+                    <p>Date: 12/4/2023</p>
+                    <h4>EGP 200 per adult</h4>
+                </div>
+               
+                <a href=".html"><button class="view-tour">View Tour</button></a>
+
+            </div>       
+            
+        </div>
+        
+          
+          
+    </section>
+    <div id="reviews">
+        <h2>Reviews</h2>
+        <div class="rows">
+          <div class="review">
+            <h3>Amazing Experience</h3>
+            <p>My visit to cairo was at one of its most festive yet peaceful times.. tho hailing from india the temples, the monuments and the bazaars simply took my breath away.. Death as a theme is celebrated with such fervor here thats why its beauty with a twist!!</p>
+            <p class="author">-Clara</p>
+          </div>
+          <div class="review">
+            <h3>Alex,Beautiful Places</h3>
+            <p>Cairo which recently recovered from one of the greatest revolutions in its history is a truley magnificant city. The many and unique historical sites make you feel that you made a visit to history,the ancient monuments preserved in the egyptian museum,the huge and remarkable pyramids of Giza,the beautiful Nile which is the longest river in the world are unforgettable.</p>
+            <p class="author">- Alex</p>
+          </div>
+        </div>
+        <div class="rows">
+          <div class="review">
+            <h3>Great Tour Guide</h3>
+            <p>Cairo is a cocktail of cultures and in some respects a contradiction of all of the cultures. My guide for my trip was Mrsey of Midland Travel, booked through British Airways. Morsey was superb as was his driver, this was reasonably priced and included lunch, entrance fees and travel between all sites over two days....Brilliant!!!!</p>
+            <p class="author">- Mark Smith</p>
+          </div>
+          <div class="review">
+            <h3>Memorable Trip</h3>
+            <p>Over the years I have watched some countries change--they changed so much that they have loss their culture and the influences---but not Egypt---there are new buldings in Cairo--new stores and malls ut Egypt maintains the culture---it's something nice to see--it is a favorite place.</p>
+            <p class="author">- Sarah Johnson</p>
+          </div>
+        </div>
+      </div>
+
+</body>
+<footer>
+    <p><i class="fas fa-ship"></i> &copy; 2023 GoEgy. All Rights Reserved.</p>
+  </footer>
+
+
+
+</html>

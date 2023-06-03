@@ -1,5 +1,5 @@
 const city = require("../models/city");
-
+const cairo = require("../models/cairotours");
 const bcrypt= require ("bcryptjs");
 
 const Addcity = (req, res) => {
@@ -34,12 +34,23 @@ const Addcity = (req, res) => {
   };
 
 
-  
+  const getcairo = (req, res) => {
+    cairo.find()
+      .then((result) => {
+       
+        res.render("cairotours", { cities: result, users: req.session.users|| null });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.render("tours", { cities: [], users: req.session.users || null });
+      });
+  };
 
 
   module.exports = {
     Addcity:Addcity,
-getcity:getcity
+getcity:getcity,
+getcairo:getcairo
   };
     
   

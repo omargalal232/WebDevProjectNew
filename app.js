@@ -6,7 +6,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const city= require("./models/city");
 
-
+const cairotours = require("./models/cairotours");
 const bodyParser = require('body-parser');
 const { generateGpt3Response } = require('./openai');
 
@@ -57,7 +57,7 @@ const ToursRouter = require("./routes/tours");
 const signupRouter = require("./routes/signup");
 const loginRouter = require("./routes/login");
 const admindashboardRouter = require("./routes/admindashboard");
-
+const cairoRouter=require("./routes/cairotours");
 
 
 
@@ -69,7 +69,7 @@ app.use("/tours", ToursRouter);
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/", admindashboardRouter);
-
+app.use("/cairotours", cairoRouter);
 
 
 // Move the 404 error handler down, after the chatbot routes
