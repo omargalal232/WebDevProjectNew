@@ -17,7 +17,7 @@ const flightSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  ticketsavailable: {
+  seatsavailable: {
     type: Number,
     required: true
   },
@@ -50,7 +50,7 @@ const flig = new Flight({
   destination: 'gouna',
   duration: 5,
   price: 550,
-  ticketsavailable: 4,
+ seatsavailable: 4,
   image: 'https://serving.photos.photobox.com/57208297cf565935a56fa20779511a39e4a67146c4c65dcfc4ac08e7688b981fa65b3230.jpg',
   flightnumber: 1001,
   from :"hurghada" ,
