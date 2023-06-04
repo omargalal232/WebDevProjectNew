@@ -10,26 +10,17 @@ const hotels = require("../controllers/hotels");
 
 
 
-router.get("/hotel", (req, res) => {
-  res.render("hotel");
-
-});
 
 
 
-router.get("/hotelhilton", (req, res) => {
-  res.render("hotelhilton");
-
-});
+router.get("/get:id",hotels.hoteldetails); 
 
 
-router.get("/hotelmariot", (req, res) => {
-  res.render("hotelmariot");
 
-});
 
 
 router.get("/get", hotels.gethotel);
 
 
+router.get("/get/:id",hotels.hoteldetails); 
 module.exports = router;

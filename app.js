@@ -69,7 +69,7 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/", admindashboardRouter);
 app.use("/cairotours", cairoRouter);
-app.use("/hotel", hotelRouter)
+app.use("/hotel", hotelRouter);
 
 
 // Move the 404 error handler down, after the chatbot routes

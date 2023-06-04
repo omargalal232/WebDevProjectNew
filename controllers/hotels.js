@@ -11,6 +11,19 @@ const gethotel = (req, res) => {
     });
 };
 
+const hoteldetails = (req, res) => {
+  hotel.findById(req.params.id)
+    .then((result) => {
+      res.render("hotelmariot", { objhotel: result, users: req.session.users || null });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.render("hotel", { objhotel: [], users: req.session.users || null });
+    });
+};
+
+
 module.exports = {
-  gethotel: gethotel
+  gethotel: gethotel,
+  hoteldetails:hoteldetails
 };
