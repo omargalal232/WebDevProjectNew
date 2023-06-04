@@ -29,7 +29,7 @@ const hotel=new hotels({
     name: 'hilton cairo',  
       price: 5000,
       description:'mariot tagmoa',
-      image:'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FHotel_Review-g294201-d300669-Reviews-Ramses_Hilton-Cairo_Cairo_Governorate.html&psig=AOvVaw1t7cktlNzhk2g0FWr-guoa&ust=1685882739327000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNjs4-CQp_8CFQAAAAAdAAAAABAE.jpg',
+      image:'https://serving.photos.photobox.com/1089702650301a995818d44b474b933c76730986be58d63528e97e773726005299f4f893.jpg',
       url:'/hotel/hotelmariot'
 
     });
