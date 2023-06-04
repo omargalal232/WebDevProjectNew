@@ -80,7 +80,7 @@
             <p>Date: <%= cairotours[i].date.toLocaleDateString() %></p>
             <h4>EGP <%= cairotours[i].price %> per adult</h4>
           </div>
-          <a href=""><button class="view-tour">View Tour</button></a>
+          <a href="/cairotours/get/<%= cairotours[i].id %>"><button class="view-tour">View Tour</button></a>
         </div>
         <% if ((i + 1) % 3 === 0 || (i + 1) === cairotours.length) { %>
           </div>

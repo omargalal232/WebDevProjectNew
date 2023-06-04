@@ -14,9 +14,20 @@ const getcairo = (req, res) => {
       });
   };
 
+  const tourdetails = (req, res) => {
+    cairo.findById(req.params.id)
+      .then((result) => {
+        res.render("tourdetails", { objtour: result, users: req.session.users || null });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.render("tours", { objtour: [], users: req.session.users || null });
+      });
+  };
 
   module.exports = {
 
-getcairo:getcairo
+getcairo:getcairo,
+tourdetails:tourdetails
 
   };
