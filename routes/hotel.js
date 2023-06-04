@@ -17,6 +17,14 @@ router.get("/hotel", (req, res) => {
 
 
 
+router.get("/hotelhilton", (req, res) => {
+  res.render("hotelhilton");
+
+});
+
+
+
+
 router.get("/get", hotels.gethotel);
 
 
