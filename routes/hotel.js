@@ -23,6 +23,10 @@ router.get("/hotelhilton", (req, res) => {
 });
 
 
+router.get("/hotelmariot", (req, res) => {
+  res.render("hotelmariot");
+
+});
 
 
 router.get("/get", hotels.gethotel);
