@@ -20,7 +20,7 @@
         <img class="d-block w-100" src="/images/flight.jpg" alt="Hotel 2">
     </div>
     <br>
-    <form onsubmit="searchFlights(event)" method="post" action="/flight/search">
+    <form onsubmit="searchFlights(event)" method="post" action="/flight/get">
         <label for="from">From:</label>
         <input type="text" id="from" name="from">
 
@@ -35,7 +35,17 @@
     </form>
 
     <section id="search-results">
-  
+        <% if (objflight && objflight.length > 0) { %>
+        <h2>Search Results</h2>
+        <% objflight.forEach((objflight) => { %>
+        <div class="flight-result">
+            <h3><%= objflight.from %> (To: <%= objflight.to %>)</h3>
+            <p>Price: <%= objflight.price %></p>
+        </div>
+        <% }) %>
+        <% } else { %>
+        <p>No results found.</p>
+        <% } %>
     </section>
 
     
