@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const flightController = require("../controllers/flight");
 
-router.get("/flight", (req, res) => {
+router.get("/get", (req, res) => {
   res.render("flight", { users: req.session.users || null });
 });
 
-router.get("/get", flightController.getflight);
 
+router.post("/search",flightController.getflight);
 module.exports = router;

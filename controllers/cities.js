@@ -24,7 +24,7 @@ const Addcity = (req, res) => {
     city.find()
       .then((result) => {
         console.log("Database is retrieved");
-        console.log(result);
+       
         res.render("tours", { cities: result, users: req.session.users|| null });
       })
       .catch((err) => {

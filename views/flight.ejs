@@ -20,7 +20,7 @@
         <img class="d-block w-100" src="/images/flight.jpg" alt="Hotel 2">
     </div>
     <br>
-    <form onsubmit="searchFlights(event)" method="post" action="/flight/get">
+    <form onsubmit="searchFlights(event)" method="post" action="/flight/search">
         <label for="from">From:</label>
         <input type="text" id="from" name="from">
 
@@ -35,17 +35,7 @@
     </form>
 
     <section id="search-results">
-        <% if (flights && flights.length > 0) { %>
-        <h2>Search Results</h2>
-        <% flights.forEach((flight) => { %>
-        <div class="flight-result">
-            <h3><%= flight.from %> (To: <%= flight.to %>)</h3>
-            <p>Price: <%= flight.price %></p>
-        </div>
-        <% }) %>
-        <% } else { %>
-        <p>No results found.</p>
-        <% } %>
+  
     </section>
 
     
@@ -56,54 +46,8 @@
     <p><i class="fa fa-plane" aria-hidden="true"></i> &copy; 2023 GoEgy. All Rights Reserved.</p>
 </footer>
 
-<script>
-    function searchFlights(event) {
-        event.preventDefault();
 
-        const to = document.getElementById('to').value;
-        const from = document.getElementById('from').value;
-        const price = document.getElementById('price').value;
 
-        const searchParams = {
-            price: price,
-            from: from,
-            to: to,
-        };
 
-        // Make an AJAX request to call the search function in your server-side controller
-        fetch('/flight/get', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(searchParams),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                renderSearchResults(data.flights);
-            })
-            .catch((error) => {
-                console.log(error);
-                renderSearchResults([]);
-            });
-    }
-
-    function renderSearchResults(flights) {
-        const searchResultsSection = document.getElementById('search-results');
-        let html = '';
-        if (flights && flights.length > 0) {
-            html += '<h2>Search Results</h2>';
-            flights.forEach((flight) => {
-                html += '<div class="flight-result">';
-                html += '<h3>' + flight.from + ' (To: ' + flight.to + ')</h3>';
-                html += '<p>Price: ' + flight.price + '</p>';
-                html += '</div>';
-            });
-        } else {
-            html += '<p>No results found.</p>';
-        }
-        searchResultsSection.innerHTML = html;
-    }
-</script>
 
 </html>
