@@ -67,26 +67,26 @@
 
         
 
-
     <section class="tour-deals">
-
-
-        <div class="tour-row">
-           
-          <% for (let i = 0; i < cairotours.length; i++) { %>
-            <div class="tour-box">
-              <img style="height: 200px; width: 350px;" src="<%= cairotours[i].image %>" alt="">
-              <h4><%= cairotours[i].name %></h4>
-          
-              <div class="tour-details">
-                <p>Duration: <%= cairotours[i].duration %> hours</p>
-                <p>Date: <%= cairotours[i].date.toLocaleDateString() %></p>
-                <h4>EGP <%= cairotours[i].price %> per adult</h4>
-              </div>
-          
-              <a href=""><button class="view-tour">View Tour</button></a>
-            </div>
-          <% } %>
+      <% for (let i = 0; i < cairotours.length; i++) { %>
+        <% if (i % 3 === 0) { %>
+          <div class="tour-row">
+        <% } %>
+        <div class="tour-box">
+          <img style="height: 200px; width: 350px;" src="<%= cairotours[i].image %>" alt="">
+          <h4><%= cairotours[i].name %></h4>
+          <div class="tour-details">
+            <p>Duration: <%= cairotours[i].duration %> hours</p>
+            <p>Date: <%= cairotours[i].date.toLocaleDateString() %></p>
+            <h4>EGP <%= cairotours[i].price %> per adult</h4>
+          </div>
+          <a href=""><button class="view-tour">View Tour</button></a>
+        </div>
+        <% if ((i + 1) % 3 === 0 || (i + 1) === cairotours.length) { %>
+          </div>
+        <% } %>
+      <% } %>
+    </section>
           
             <!-- <div  style="margin-right:6px;" class="tour-box">
                 <img  style="height: 200px; width: 350px;" src="download (7).jpeg" alt="">
@@ -163,7 +163,7 @@
         
            -->
           
-    </section>
+   
     <div id="reviews">
         <h2>Reviews</h2>
         <div class="rows">
