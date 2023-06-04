@@ -226,10 +226,10 @@ nav ul li:hover a {
 .cruise-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px; /* Add a max-width to the container */
+  margin: 0 auto; /* Center the container using margin: 0 auto; */
 }
 
 .cruise-box {
@@ -237,10 +237,12 @@ nav ul li:hover a {
   margin-bottom: 40px;
   border: 2px solid #ddd;
   padding: 20px;
+  position: relative;
   flex-basis: calc(50% - 10px);
+  margin-right: 10px;
 }
 
-.cruise-box:nth-child(2n) {
+.cruise-box:nth-child(2n+1) {
   margin-right: 0;
 }
 
@@ -528,12 +530,6 @@ label {
   opacity: 1;
  }
  
- @media screen and (max-width: 768px) {
-  .cruise-box {
-    width: 100%;
-    flex-basis: 100%;
-    margin-right: 0;
-  }
-}
+ 
 
 
