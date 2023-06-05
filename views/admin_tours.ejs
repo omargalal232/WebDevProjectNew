@@ -78,10 +78,10 @@
                                 <td>
                                     <%= Tour.name %>
                                 </td>
-                                <td> <a class="nav-link" href="/admin_tours/edit/<%= Tour._id %>" class="">edit</a>
+                                <td> <a class="nav-link" href="/edit/<%= Tour._id %>" class="">edit</a>
                                 </td>
                                 <td>
-                                    <form action="/admin_tours/remove/<%= Tour._id %>" method="POST"
+                                    <form action="/remove/<%= Tour._id %>" method="POST"
                                         class="delete-form">
                                         <button type="submit" class="nav-link">delete</button>
                                     </form>
@@ -98,24 +98,10 @@
                         <br>
                         <!-- Add Hotel Form -->
                         <h3>Add tour</h3>
-                        <form action="/tour_hotel" method="POST" method="post">
+                        <form action="/admin_tours" method="POST">
                             <div class="mb-3">
                                 <label for="tour_name" class="form-label">Tour Name:</label>
                                 <input type="text" class="form-control" id="tour_name" name="tour_name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tour_price" class="form-label">Price:</label>
-                                <input type="text" class="form-control" id="tour_price" name="tour_price" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tour_duration" class="form-label">duration:</label>
-                                <input type="text" class="form-control" id="tour_duration" name="tour_duration"
-                                    required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="tour_destination" class="form-label">destination:</label>
-                                <input type="text" class="form-control" id="tour_destination" name="tour_destination"
-                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="tour_description" class="form-label">Description:</label>
@@ -123,8 +109,8 @@
                                     required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="tour_image" class="form-label">Upload tour Image:</label>
-                                <input type="file" class="form-control" id="tour_image" name="tour_image"
+                                <label for="tour_image" class="form-label">Upload tour Image / Enter Url:</label>
+                                <input type="text" class="form-control" id="tour_image" name="tour_image"
                                     accept="image/*" required>
                             </div>
                             <input type="submit" class="btn btn-primary" value="Add tour">
