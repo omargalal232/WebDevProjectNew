@@ -5,8 +5,7 @@ const city = require("../models/city");
 
 
 
-
-router.use((req, res, next) => {
+router.use("/admin_dashboard" , (req, res, next) => {
     if (req.session.users !== undefined && req.session.users.UserName === 'admin') {
         next();
     }
@@ -14,6 +13,7 @@ router.use((req, res, next) => {
         res.render('err', { err: 'You are not an Admin',users: (req.session.users === undefined ? "" : req.session.users) })
     }
   });
+
 
 // GET : /admindashboard
 // router.get("/", (req, res) => {
@@ -71,6 +71,8 @@ router.get("/admin_hotel", (req, res) => {
             console.log(err)
         })
 });
+
+
 
 
 
