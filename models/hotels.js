@@ -16,24 +16,21 @@ const hotelsSchema = new mongoose.Schema({
 image:{
 type: String,
 required:true
-},
-url:{
-  type:String,
-  required:true
 }
+
   
 }, { timestamps: true });
 
 const hotels = mongoose.model('hotels', hotelsSchema);
-const hotel=new hotels({
-    name: 'hilton cairo',  
-      price: 5000,
-      description:'mariot tagmoa',
-      image:'https://serving.photos.photobox.com/1089702650301a995818d44b474b933c76730986be58d63528e97e773726005299f4f893.jpg',
-      url:'/hotel/hotelmariot'
+// const hotel=new hotels({
+//     name: 'hilton cairo',  
+//       price: 5000,
+//       description:'hilton tagmoa',
+//       image:'https://serving.photos.photobox.com/1089702650301a995818d44b474b933c76730986be58d63528e97e773726005299f4f893.jpg'
+     
 
-    });
-hotel.save();
+//     });
+// hotel.save();
 
 
 module.exports = hotels;
