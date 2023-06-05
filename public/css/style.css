@@ -477,9 +477,60 @@ footer{
 .rating-bar input[type="radio"]:checked ~ label {
   color: orange;
 }
-/* .bi bi-geo-fill
-{
 
+.search-container {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  overflow: hidden;
+}
 
+.search-magnifier {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
 
-} */
+.search-magnifier.active {
+  transform: translateX(160px);
+}
+
+.search-input {
+  width: 0;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: #f2f2f2;
+  transition: width 0.5s;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+.search-input.active {
+  width: 160px;
+  padding: 0 10px;
+}
+.wishlist-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.wishlist-button:hover {
+  background-color: #f00;
+}
+
