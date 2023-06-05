@@ -336,7 +336,7 @@
                 } else if (userMessage.includes('weather')) {
                     const cityMatch = userMessage.match(/(?:weather|temperature|conditions) (?:in|for|at) (.+)/);
                     if (cityMatch && cityMatch[1]) {
-                        return getWeatherForCity(cityMatch[1]);
+                        return await getWeatherForCity(cityMatch[1]);
                     } else {
                         return "Please provide a city name to get the weather information.";
                     }
@@ -354,7 +354,7 @@
                 const userMessageElement = createMessageElement(userMessage, 'user-message');
                 appendMessage(userMessageElement);
 
-                const botResponse = await handleMessage(userMessage);
+                const botResponse = await handleMessage(userMessage); // Add await here
                 const botMessageElement = createMessageElement(botResponse, 'bot-message');
                 appendMessage(botMessageElement);
 
