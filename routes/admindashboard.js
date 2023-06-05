@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const hotels = require("../models/hotels");
 const city = require("../models/city");
+const City = require ("../controllers/cities");
+const Hotel = require ("../controllers/hotels");
+const admin = require ("../controllers/admin");
 
 
 
@@ -46,15 +49,11 @@ router.get("/admin_customers", (req, res) => {
 
 
 // GET : /admin_tours
-router.get("/admin_tours", (req, res) => {
-    city.find()
-        .then(result => {
-            res.render("admin_tours", { cities: result, users: req.session.users || null });
-        })
-        .catch(err => {
-            console.log(err)
-        })
-});
+router.get("/admin_tours",City.getcitydb); 
+router.post("/admin_tours",City.Addcity); 
+router.get("/admin_tours",City.Addcity); 
+
+   
 
 
 router.get("/admin_cruise", (req, res) => {
@@ -62,17 +61,20 @@ router.get("/admin_cruise", (req, res) => {
     res.render("admin_cruise", { users: req.session.users || null });
 });
 
-router.get("/admin_hotel", (req, res) => {
-    hotels.find()
-        .then(result => {
-            res.render("admin_hotel", { hotels: result, users: req.session.users || null });
-        })
-        .catch(err => {
-            console.log(err)
-        })
-});
+router.get("/admin_hotel", Hotel.gethoteldb) ;
 
 
+
+
+
+
+
+router.get("/edit/:id", admin.geteditdata);
+    
+
+router.post("/edit/:id", admin.editdata);
+
+router.post("/remove/:id", admin.deletedata);
 
 
 
