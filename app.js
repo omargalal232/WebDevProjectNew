@@ -5,6 +5,7 @@ const logger = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 const city = require("./models/city");
+const booking = require("./models/booking");
 
 const cairotours = require("./models/cairotours");
 const bodyParser = require('body-parser');
