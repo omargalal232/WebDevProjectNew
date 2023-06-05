@@ -59,7 +59,7 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
                 <h2>Tour</h2>
-                <% if(cities.length > 0) { %>
+                <% if(cities.length> 0) { %>
 
                     <table class="table">
 
@@ -78,8 +78,10 @@
                                 <td>
                                     <%= Tour.name %>
                                 </td>
-                                <td> <a class="nav-link" href="#" class="">edit</a> </td>
-                                <td> <a class="nav-link" href="#" class="">delete</a> </td>
+                                <td> <a class="nav-link" href="/admin_tours/edit/<%= Tour._id %>" class="">edit</a>
+                                </td>
+                                <td> <a class="nav-link" href="/admin_tours/remove/<%= Tour._id %>" class="">delete</a>
+                                </td>
                             </tr>
 
                             <%})%>
@@ -103,11 +105,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="tour_duration" class="form-label">duration:</label>
-                                <input type="text" class="form-control" id="tour_duration" name="tour_duration" required>
+                                <input type="text" class="form-control" id="tour_duration" name="tour_duration"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="tour_destination" class="form-label">destination:</label>
-                                <input type="text" class="form-control" id="tour_destination" name="tour_destination" required>
+                                <input type="text" class="form-control" id="tour_destination" name="tour_destination"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="tour_description" class="form-label">Description:</label>

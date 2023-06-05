@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- ... -->
+    <!-- Include Bootstrap CSS and other required CSS files -->
+    <!-- ... -->
+</head>
+
+<body>
+    <h2>Edit Tour</h2>
+    <form action="/admin_tours/edit/<%= tour._id %>" method="POST">
+        <div>
+            <label for="tour_name">Tour Name:</label>
+            <input type="text" id="tour_name" name="tour_name" value="<%= tour.name %>">
+        </div>
+        <div>
+            <label for="tour_description">Description:</label>
+            <textarea id="tour_description" name="tour_description" rows="4"
+                cols="50"><%= tour.description %></textarea>
+        </div>
+        <div>
+            <label for="tour_image">Image URL:</label>
+            <input type="text" id="tour_image" name="tour_image" value="<%= tour.image %>">
+        </div>
+        <!-- Add more form fields if needed, based on your schema -->
+        <input type="submit" value="Update Tour">
+    </form>
+</body>
+
+</html>

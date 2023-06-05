@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
-const city= require("./models/city");
+const city = require("./models/city");
 
 const cairotours = require("./models/cairotours");
 const bodyParser = require('body-parser');
@@ -57,8 +57,9 @@ const ToursRouter = require("./routes/tours");
 const signupRouter = require("./routes/signup");
 const loginRouter = require("./routes/login");
 const admindashboardRouter = require("./routes/admindashboard");
-const cairoRouter=require("./routes/cairotours");
+const cairoRouter = require("./routes/cairotours");
 const hotelRouter = require("./routes/hotel");
+const adminToursRouter = require("./routes/admin_tours");
 
 
 app.use("/flight", flightRouter);
@@ -70,6 +71,7 @@ app.use("/login", loginRouter);
 app.use("/", admindashboardRouter);
 app.use("/cairotours", cairoRouter);
 app.use("/hotel", hotelRouter);
+app.use("/admin_tours", adminToursRouter);
 
 
 // Move the 404 error handler down, after the chatbot routes
