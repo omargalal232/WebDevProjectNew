@@ -25,4 +25,6 @@ const Flight = require("../controllers/flight");
 router.post("/get", Flight.getflight);
 router.get("/get",Flight.flightdetailes);
 router.get("/get/:id",Flight.flightdetailes); 
+
+
 module.exports = router;

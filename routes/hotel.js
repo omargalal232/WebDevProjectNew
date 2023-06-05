@@ -23,4 +23,7 @@ router.get("/get", hotels.gethotel);
 
 
 router.get("/get/:id",hotels.hoteldetails); 
+
+
+
 module.exports = router;

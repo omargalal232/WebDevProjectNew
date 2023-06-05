@@ -12,4 +12,7 @@ router.get("/get", cairo.getcairo);
 
 
 router.get("/get/:id",cairo.tourdetails); 
+
+
+
 module.exports = router;

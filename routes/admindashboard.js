@@ -2,16 +2,29 @@ const express = require("express");
 const router = express.Router();
 const hotels = require("../models/hotels");
 const city = require("../models/city");
+
+
+
+
+router.use((req, res, next) => {
+    if (req.session.users !== undefined && req.session.users.UserName === 'admin') {
+        next();
+    }
+    else {
+        res.render('err', { err: 'You are not an Admin',users: (req.session.users === undefined ? "" : req.session.users) })
+    }
+  });
+
 // GET : /admindashboard
-router.get("/", (req, res) => {
+// router.get("/", (req, res) => {
 
-    res.render("admindashboard", { users: req.session.users || null });
-});
+//     res.render("admindashboard", { users: req.session.users || null });
+// });
 
-router.get("/admindashboard", (req, res) => {
+// router.get("/admindashboard", (req, res) => {
 
-    res.render("admindashboard", { users: req.session.users || null });
-});
+//     res.render("admindashboard", { users: req.session.users || null });
+// });
 
 // GET : /admin_dashboard
 router.get("/admin_dashboard", (req, res) => {
