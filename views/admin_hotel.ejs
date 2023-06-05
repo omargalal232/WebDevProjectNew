@@ -16,7 +16,7 @@
 </header>
 
 <body>
-
+    <br><br>
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -57,43 +57,66 @@
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <h2>Dashboard</h2>
-                <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card bg-primary text-white mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Tours</h5>
-                                <h1 class="display-4">150</h1>
+
+                <h2>Hotels</h2>
+                <% if(hotels.length > 0) { %>
+
+                    <table class="table">
+
+
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Hotel Name</th>
+                            <th Scope="col">Action</th>
+                        </tr>
+
+                        <% hotels.forEach(Hotel=> { %>
+
+                            <!-- Add your tour data here -->
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    <%= Hotel.name %>
+                                </td>
+                                <td> <a class="nav-link" href="#" class="">edit</a> </td>
+                                <td> <a class="nav-link" href="#" class="">delete</a> </td>
+                            </tr>
+
+                            <%})%>
+                    </table>
+
+                    <%}%>
+                        <br>
+                        <!-- Separator between table and form -->
+                        <hr>
+                        <br>
+                        <!-- Add Hotel Form -->
+                        <h3>Add Hotel</h3>
+                        <form action="/add_hotel" method="POST" method="post">
+                            <div class="mb-3">
+                                <label for="hotel_name" class="form-label">Hotel Name:</label>
+                                <input type="text" class="form-control" id="hotel_name" name="hotel_name" required>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card bg-success text-white mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Customers</h5>
-                                <h1 class="display-4">250</h1>
+                            <div class="mb-3">
+                                <label for="hotel_price" class="form-label">Price:</label>
+                                <input type="text" class="form-control" id="hotel_price" name="hotel_price" required>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card bg-warning text-white mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Bookings</h5>
-                                <h1 class="display-4">400</h1>
+                            <div class="mb-3">
+                                <label for="hotel_description" class="form-label">Description:</label>
+                                <textarea class="form-control" id="hotel_description" name="hotel_description" rows="5"
+                                    required></textarea>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card bg-danger text-white mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Revenue</h5>
-                                <h1 class="display-4">$50k</h1>
+                            <div class="mb-3">
+                                <label for="hotel_image" class="form-label">Upload Hotel Image:</label>
+                                <input type="file" class="form-control" id="hotel_image" name="hotel_image"
+                                    accept="image/*" required>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add your content here -->
+                            <input type="submit" class="btn btn-primary" value="Add Hotel">
+                        </form>
+                        <!-- End of Add Hotel Form -->
+
             </main>
+
         </div>
     </div>
 
@@ -103,3 +126,5 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
+
+</html>
