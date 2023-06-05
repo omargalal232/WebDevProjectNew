@@ -45,23 +45,26 @@
                         Flight Tickets</a>
 
 
-                        <% if (!locals.users) { %>
-                        </li>
-                        <li class="nav-item text-end">
-                          <a class="nav-link text-end" href="/signup">Sign Up</a>
-                        </li>
-                        <li class="nav-item text-end">
-                          <a class="nav-link text-end" href="/login">Login</a>
-                        </li>
-                      <% } else { %>
-                        <li class="nav-item text-end">
-                          <a class="nav-link text-end" href="/login/signout">Sign Out</a>
-                        </li>
-                        <li class="nav-item text-end">
-                          <div class="nav-link text-end">Welcome <%= locals.users.UserName %></div>
-                        </li>
-                      <% } %>
-                      
+                    <% if (!locals.users) { %>
+                </li>
+                <li class="nav-item text-end">
+                    <a class="nav-link text-end" href="/signup">Sign Up</a>
+                </li>
+                <li class="nav-item text-end">
+                    <a class="nav-link text-end" href="/login">Login</a>
+                </li>
+                <% } else { %>
+                    <li class="nav-item text-end">
+                        <a class="nav-link text-end" href="/login/signout">Sign Out</a>
+                    </li>
+                    <li class="nav-item text-end">
+                        <div class="nav-link text-end">Welcome <%= locals.users.UserName %>, <a
+                                    href="/admindashboard">Access Admin
+                                    Dashboard</a>
+                        </div>
+                    </li>
+                    <% } %>
+
             </ul>
         </div>
     </div>

@@ -273,6 +273,14 @@
                 }
             }
 
+            function getUniqueRandomIndex(maxIndex, previousIndex) {
+                let newIndex = Math.floor(Math.random() * maxIndex);
+                while (newIndex === previousIndex) {
+                    newIndex = Math.floor(Math.random() * maxIndex);
+                }
+                return newIndex;
+            }
+
             async function handleMessage(userMessage) {
                 userMessage = userMessage.toLowerCase();
 
@@ -334,7 +342,7 @@
                 } else if (userMessage.includes('hello') || userMessage.includes('hi') || userMessage.includes('hey') || userMessage.includes('welcome')) {
                     return greetings[Math.floor(Math.random() * greetings.length)];
                 } else if (userMessage.includes('weather')) {
-                    const cityMatch = userMessage.match(/(?:weather|temperature|conditions) (?:in|for|at) (.+)/);
+                    const cityMatch = userMessage.match(/(?:weather|temperature|conditions).*\s(?:in|for|at)\s*(.+)/i); // Update the regular expression
                     if (cityMatch && cityMatch[1]) {
                         return await getWeatherForCity(cityMatch[1]);
                     } else {
@@ -354,7 +362,7 @@
                 const userMessageElement = createMessageElement(userMessage, 'user-message');
                 appendMessage(userMessageElement);
 
-                const botResponse = await handleMessage(userMessage); // Add await here
+                const botResponse = await handleMessage(userMessage);
                 const botMessageElement = createMessageElement(botResponse, 'bot-message');
                 appendMessage(botMessageElement);
 
