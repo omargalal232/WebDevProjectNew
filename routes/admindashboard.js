@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const hotels = require("../models/hotels");
-
+const city = require("../models/city");
 // GET : /admindashboard
 router.get("/", (req, res) => {
 
@@ -33,8 +33,13 @@ router.get("/admin_customers", (req, res) => {
 
 // GET : /admin_tours
 router.get("/admin_tours", (req, res) => {
-
-    res.render("admin_tours", { users: req.session.users || null });
+    city.find()
+        .then(result => {
+            res.render("admin_tours", {cities:result, users: req.session.users || null  });
+        })
+        .catch(err => {
+            console.log(err)
+        })
 });
 
 router.get("/admin_cruise", (req, res) => {
@@ -51,5 +56,8 @@ router.get("/admin_hotel", (req, res) => {
             console.log(err)
         })
 });
+
+
+
 
 module.exports = router;

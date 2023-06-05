@@ -12,8 +12,9 @@
 
 </head>
 <header>
-<%- include("./partials/nav.ejs") %>
+    <%- include("./partials/nav.ejs") %>
 </header>
+
 <body>
     <br><br>
     <div class="container-fluid">
@@ -56,34 +57,74 @@
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <h2>Tours</h2>
-                <table class="table">
-                    <thead>
+
+                <h2>Tour</h2>
+                <% if(cities.length > 0) { %>
+
+                    <table class="table">
+
+
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Tour Name</th>
-                            <th scope="col">Location</th>
-                            <th scope="col">Duration</th>
+                            <th Scope="col">Action</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Add your tour data here -->
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Example Tour 1</td>
-                            <td>Location 1</td>
-                            <td>3 days</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Example Tour 2</td>
-                            <td>Location 2</td>
-                            <td>5 days</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- Add your content here -->
+
+                        <% cities.forEach(Tour=> { %>
+
+                            <!-- Add your tour data here -->
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    <%= Tour.name %>
+                                </td>
+                                <td> <a class="nav-link" href="#" class="">edit</a> </td>
+                                <td> <a class="nav-link" href="#" class="">delete</a> </td>
+                            </tr>
+
+                            <%})%>
+                    </table>
+
+                    <%}%>
+                        <br>
+                        <!-- Separator between table and form -->
+                        <hr>
+                        <br>
+                        <!-- Add Hotel Form -->
+                        <h3>Add tour</h3>
+                        <form action="/tour_hotel" method="POST" method="post">
+                            <div class="mb-3">
+                                <label for="tour_name" class="form-label">Tour Name:</label>
+                                <input type="text" class="form-control" id="tour_name" name="tour_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tour_price" class="form-label">Price:</label>
+                                <input type="text" class="form-control" id="tour_price" name="tour_price" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tour_duration" class="form-label">duration:</label>
+                                <input type="text" class="form-control" id="tour_duration" name="tour_duration" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tour_destination" class="form-label">destination:</label>
+                                <input type="text" class="form-control" id="tour_destination" name="tour_destination" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tour_description" class="form-label">Description:</label>
+                                <textarea class="form-control" id="tour_description" name="tour_description" rows="5"
+                                    required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tour_image" class="form-label">Upload tour Image:</label>
+                                <input type="file" class="form-control" id="tour_image" name="tour_image"
+                                    accept="image/*" required>
+                            </div>
+                            <input type="submit" class="btn btn-primary" value="Add tour">
+                        </form>
+                        <!-- End of Add Hotel Form -->
+
             </main>
+
         </div>
     </div>
 
@@ -93,3 +134,5 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
+
+</html>
