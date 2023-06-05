@@ -80,7 +80,11 @@
                                 </td>
                                 <td> <a class="nav-link" href="/admin_tours/edit/<%= Tour._id %>" class="">edit</a>
                                 </td>
-                                <td> <a class="nav-link" href="/admin_tours/remove/<%= Tour._id %>" class="">delete</a>
+                                <td>
+                                    <form action="/admin_tours/remove/<%= Tour._id %>" method="POST"
+                                        class="delete-form">
+                                        <button type="submit" class="nav-link">delete</button>
+                                    </form>
                                 </td>
                             </tr>
 

@@ -27,7 +27,7 @@ router.post("/edit/:id", async (req, res) => {
     }
 });
 
-router.get("/remove/:id", async (req, res) => {
+router.post("/remove/:id", async (req, res) => {
     try {
         await City.findByIdAndRemove(req.params.id);
         res.redirect("/admin_tours");
