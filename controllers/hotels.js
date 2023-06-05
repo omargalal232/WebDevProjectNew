@@ -11,6 +11,16 @@ const gethotel = (req, res) => {
     });
 };
 
+const gethoteldb = (req,res) => {
+  hotel.find()
+  .then(result => {
+      res.render("admin_hotel", { hotels: result, users: req.session.users || null });
+  })
+  .catch(err => {
+      console.log(err)
+  })
+}
+
 
 
 
@@ -84,6 +94,7 @@ const hoteldetails = (req, res) => {
 
 module.exports = {
   gethotel: gethotel,
+  gethoteldb:gethoteldb,
   hoteldetails:hoteldetails,
   bookroom:bookroom
 };

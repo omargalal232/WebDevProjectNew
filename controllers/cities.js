@@ -6,9 +6,9 @@ const Addcity = (req, res) => {
     const city = new city({
         name: req.body.name,
         description: req.body.description,
-        
+
       });
-    
+
       city
       .save()
       .then((result) => {
@@ -24,8 +24,8 @@ const Addcity = (req, res) => {
     city.find()
       .then((result) => {
         console.log("Database is retrieved");
-       
-        res.render("tours", { cities: result, users: req.session.users|| null });
+
+        res.render("tours", { cities: result, users: req.session.users ||null });
       })
       .catch((err) => {
         console.log(err);
@@ -33,16 +33,29 @@ const Addcity = (req, res) => {
       });
   };
 
+  const getcitydb = (req, res) => {
+    city.find()
+      .then((result) => {
+
+
+        res.render("admin_tours", { cities: result, users: req.session.users ||null });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.render("admin_tours", { cities: [], users: req.session.users || null });
+      });
+  };
+
 
   // const getcairo = (req, res) => {
   //   cairo.find()
   //     .then((result) => {
-       
-  //       res.render("cairotours", { cities: result, users: req.session.users|| null });
+
+  //       res.render("cairotours", { cities: result, users: req.session.users null });
   //     })
   //     .catch((err) => {
   //       console.log(err);
-  //       res.render("tours", { cities: [], users: req.session.users || null });
+  //       res.render("tours", { cities: [], users: req.session.users  null });
   //     });
   // };
 
@@ -50,7 +63,6 @@ const Addcity = (req, res) => {
   module.exports = {
     Addcity:Addcity,
 getcity:getcity,
+getcitydb: getcitydb,
 // getcairo:getcairo
   };
-    
-  
