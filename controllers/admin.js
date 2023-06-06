@@ -1,4 +1,4 @@
-const City = require("../models/city");
+const City = require("../models/cairotours");
 const user= require("../models/users");
 const Hotel = require("../models/hotels");
 
@@ -7,13 +7,19 @@ const Addcitydb = (req, res) => {
   const newCity = new City({
     name: req.body.tour_name,
     description: req.body.tour_description,
-    image: req.body.tour_image,
+    date: req.body.tour_date,
+    price: req.body.tour_price,
+    ticketsavailable: req.body.tour_tickets,
+    duration: req.body.duration,
+    img1: req.body.tour_image1,
+    img2: req.body.tour_image2,
+    img3: req.body.tour_image3,
   });
 
   newCity
     .save()
     .then((result) => {
-      res.redirect("/admin_tours");
+      res.redirect("/admin_tours" , { tour });
     })
     .catch((err) => {
       console.log(err);
@@ -36,10 +42,10 @@ const editdata = async (req, res) => {
     const updatedTour = {
       name: req.body.tour_name,
       description: req.body.tour_description,
-      image: req.body.tour_image,
+      img1: req.body.tour_image,
     };
     await City.findByIdAndUpdate(req.params.id, updatedTour);
-    res.redirect("/admin_tours");
+    res.redirect("/admin_tours" , );
   } catch (err) {
     console.error(err);
     res.status(500).send("Server error");
@@ -72,7 +78,7 @@ const Addhotels = (req, res) => {
     hotel
     .save()
     .then((result) => {
-      res.redirect("/admin_hotel");
+      res.redirect("/admin_hotel" , );
     })
     .catch((err) => {
       console.log(err);
@@ -82,7 +88,7 @@ const Addhotels = (req, res) => {
 const gethotelsdb = (req,res) => {
   user.find()
   .then(result => {
-      res.render("admin_hotel", { hotels: result, users: req.session.users || null });
+      res.render("admin_hotel", { hotel: result, users: req.session.users || null });
     
   })
   .catch(err => {
@@ -92,8 +98,8 @@ const gethotelsdb = (req,res) => {
 }
 const getedithoteld = async (req, res) => {
   try {
-    const tour = await Hotel.findById(req.params.id);
-    res.render("admin_tours_edit", { tour });
+    const hotel = await Hotel.findById(req.params.id);
+    res.render("admin_hotels_edit", { hotel });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server error");
@@ -103,9 +109,9 @@ const getedithoteld = async (req, res) => {
 const edithotel = async (req, res) => {
   try {
     const updatedhotel = {
-      name: req.body.tour_name,
-      description: req.body.tour_description,
-      image1: req.body.tour_image,
+      name: req.body.hotel_name,
+      description: req.body.hotel_description,
+      image1: req.body.hotel_image,
     };
     await Hotel.findByIdAndUpdate(req.params.id, updatedhotel);
     res.redirect("/admin_hotel");

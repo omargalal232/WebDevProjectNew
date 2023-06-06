@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const hotels = require("../models/hotels");
-const city = require("../models/city");
-const City = require ("../controllers/cities");
+const city = require("../models/cairotours");
+const City = require ("../controllers/cairo");
 const Hotel = require ("../controllers/hotels");
 const admin = require ("../controllers/admin");
 const { Admin } = require("mongodb");
@@ -45,11 +45,14 @@ router.get("/admin_addAdmin", (req, res) => {
 
 // GET : /admin_customers
 
+ 
 
+  
 // GET : /admin_tours
-router.get("/admin_tours",City.getcitydb); 
-router.post("/admin_tours",admin.Addcitydb); 
-router.get("/admin_tours",admin.Addcitydb); 
+router.get("/admin_tours",City.getcairodb); 
+router.post("/admin_tours/add",admin.Addcitydb);
+router.get("/admin_tours/add",admin.Addcitydb); 
+
 
 
 // GET : /admin_hotel
@@ -64,18 +67,17 @@ router.get("/admin_cruise", (req, res) => {
 });
 
 // modefiy the hotels routers
-router.get("/edit/:id", admin.getedithoteld);
-router.post("/edit/:id", admin.edithotel);
-router.get("/remove/:id", admin.deletehotel);
-
-
-
+router.get("/edit/hotel/:id", admin.getedithoteld);
+router.post("/edit/hotel/:id", admin.edithotel);
+router.get("/remove/hotel/:id", admin.deletehotel);
 
 
 // modefiy the tours routers
-router.get("/edit/:id", admin.geteditdata);
-router.post("/edit/:id", admin.editdata);
-router.post("/remove/:id", admin.deletedata);
+
+router.get("/edit/tour/:id", admin.geteditdata);
+router.post("/remove/tour/:id", admin.deletedata);
+router.post("/edit/tour/:id", admin.editdata);
+
 
 
 // modefiy the customer routers

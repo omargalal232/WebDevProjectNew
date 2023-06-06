@@ -14,6 +14,16 @@ const getcairo = (req, res) => {
       });
   };
 
+  const getcairodb = (req,res) => {
+    cairo.find()
+    .then(result => {
+        res.render("admin_tours", { objtour: result, users: req.session.users || null });
+    })
+    .catch(err => {
+        console.log(err)
+    })
+  }
+
   const tourdetails = (req, res) => {
     cairo.findById(req.params.id)
       .then((result) => {
@@ -56,6 +66,7 @@ result.save();
 
 getcairo:getcairo,
 tourdetails:tourdetails,
-isavailable:isavailable
+isavailable:isavailable,
+getcairodb:getcairodb
 
   };
