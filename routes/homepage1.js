@@ -10,6 +10,9 @@ router.get("/homepage1", (req, res) => {
   res.render("homepage1", { users: req.session.users || null });
 });
 
+router.get("/wishlist", (req, res) => {
+  res.render("wishlist", { users: req.session.users || null });
+});
 module.exports = router;
 
 
