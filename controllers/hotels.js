@@ -2,6 +2,12 @@ const Hotel = require("../models/hotels");
 const Room = require("../models/room");
 const Booking = require("../models/booking");
 const users = require("../models/users");
+
+
+
+
+
+
 const gethotel = (req, res) => {
   Hotel.find()
     .then((result) => {
@@ -159,5 +165,6 @@ module.exports = {
   gethoteldb:gethoteldb,
   hoteldetails:hoteldetails,
   bookroom:bookroom,
-  searchhotel:searchhotel
+  searchhotel:searchhotel,
+ 
 };

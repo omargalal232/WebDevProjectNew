@@ -1,5 +1,6 @@
 const City = require("../models/city");
 const user= require("../models/users");
+const Hotel = require("../models/hotels");
 
 
 const Addcitydb = (req, res) => {
@@ -54,6 +55,41 @@ const deletedata = async (req, res) => {
     res.status(500).send("Server error");
   }
 };
+
+
+
+const Addhotels = (req, res) => {
+  const hotel = new Hotel({
+      name: req.body.hotel_name,
+      description: req.body.hotel_description,
+      price:req.body.hotel_price,
+      image1:req.body.hotel_image1,
+      image2:req.body.hotel_image2,
+      image3:req.body.hotel_image3,
+
+    });
+
+    hotel
+    .save()
+    .then((result) => {
+      res.redirect("/admin_hotel");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect("/admin_hotel" );
+    });
+};
+const gethotelsdb = (req,res) => {
+  user.find()
+  .then(result => {
+      res.render("admin_hotel", { hotels: result, users: req.session.users || null });
+    
+  })
+  .catch(err => {
+      console.log(err)
+  })
+
+}
 
 
 
@@ -113,5 +149,7 @@ module.exports = {
   deletedata,
   AddUser,
   getuserdb,
-  deleteuser
+  deleteuser,
+  Addhotels,
+  gethotelsdb,
 };
