@@ -9,7 +9,6 @@
     <link href="css/dashboard.css" rel="stylesheet">
     <link href="css/admin_dashboard_nav.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/nav.css">
-
 </head>
 <header>
     <%- include("./partials/nav.ejs") %>
@@ -78,8 +77,8 @@
                                 <td>
                                     <%= Hotel.name %>
                                 </td>
-                                <td> <a class="nav-link" href="#" class="">edit</a> </td>
-                                <td> <a class="nav-link" href="#" class="">delete</a> </td>
+                                <td> <a class="nav-link" href="/edit/<%= Hotel._id %>" class="">edit</a> </td>
+                                <td> <a class="nav-link" href="/remove/<%= Hotel._id %>" class="">delete</a> </td>
                             </tr>
 
                             <%})%>
