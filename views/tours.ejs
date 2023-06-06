@@ -38,7 +38,8 @@
                         </p>
 
                         <a href="/cairotours/get" class="btn">Book Now</a>
-                        <a href="/cairotours/get" class="btn">Add to wishlist</a>
+                        <button class="wishlist-button add-to-wishlist" data-type="tour" data-id="<%= cities._id %>">Add
+                            to Wishlist</button>
                     </article>
                     <% } %>
             </section>
@@ -54,6 +55,32 @@
                     description.style.height = "auto";
                     const descriptionHeight = description.offsetHeight;
                     description.style.height = descriptionHeight + "px";
+                });
+            });
+
+            document.querySelectorAll(".add-to-wishlist").forEach((btn) => {
+                btn.addEventListener("click", async (e) => {
+                    const type = e.target.dataset.type;
+                    const itemId = e.target.dataset.id;
+
+                    try {
+                        const response = await fetch("/wishlist/add", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({ type, itemId }),
+                        });
+
+                        if (response.ok) {
+                            alert("Added to wishlist!");
+                        } else {
+                            alert("Error adding to wishlist.");
+                        }
+                    } catch (error) {
+                        console.error("Error:", error);
+                        alert("Error adding to wishlist.");
+                    }
                 });
             });
         </script>
