@@ -5,6 +5,8 @@ const city = require("../models/city");
 const City = require ("../controllers/cities");
 const Hotel = require ("../controllers/hotels");
 const admin = require ("../controllers/admin");
+const { Admin } = require("mongodb");
+
 
 
 
@@ -48,7 +50,11 @@ router.get("/admin_addAdmin", (req, res) => {
 router.get("/admin_tours",City.getcitydb); 
 router.post("/admin_tours",admin.Addcitydb); 
 router.get("/admin_tours",admin.Addcitydb); 
+// GET : /admin_hotel
 
+router.get("/admin_hotel", Hotel.gethoteldb) ;
+router.post("/admin_hotel",admin.Addhotels); 
+router.get("/admin_hotel",admin.Addhotels); 
 
 
 
@@ -57,7 +63,7 @@ router.get("/admin_cruise", (req, res) => {
     res.render("admin_cruise", { users: req.session.users || null });
 });
 
-router.get("/admin_hotel", Hotel.gethoteldb) ;
+
 
 
 
