@@ -22,7 +22,17 @@ const gethoteldb = (req,res) => {
 }
 
 
+const searchhotel = (req,res) => {
+  hotel.find({name:req.body.name})
+  .then(result => {
+      res.render("hotel", { hotels: result, users: req.session.users || null });
+  })
+  .catch(err => {
+      console.log(err)
+      res.render("hotel", { hotels: [], users: req.session.users || null });
+  })
 
+}
 
     
 // Define a route handler for the form submission
@@ -92,9 +102,14 @@ const hoteldetails = (req, res) => {
 };
 
 
+
+
+
+
 module.exports = {
   gethotel: gethotel,
   gethoteldb:gethoteldb,
   hoteldetails:hoteldetails,
-  bookroom:bookroom
+  bookroom:bookroom,
+  searchhotel:searchhotel
 };

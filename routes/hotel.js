@@ -13,7 +13,7 @@ const hotels = require("../controllers/hotels");
 
 
 router.get("/get", hotels.gethotel);
-
+router.post("/get/search", hotels.searchhotel);
 
 router.get("/get/:id",hotels.hoteldetails); 
 
