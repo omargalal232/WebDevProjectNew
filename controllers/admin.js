@@ -1,4 +1,6 @@
 const City = require("../models/city");
+const user= require("../models/users");
+
 
 const Addcitydb = (req, res) => {
   const newCity = new City({
@@ -53,9 +55,63 @@ const deletedata = async (req, res) => {
   }
 };
 
+
+
+
+const AddUser = (req, res) => {
+  const User = new user({
+     Name: req.body.Name,
+     UserName: req.body.UserName,
+     Email: req.body.Email,
+     Number: req.body.Number,
+     Password: req.body.Password,
+     ConfirmPassword: req.body.ConfirmPassword,
+  });
+
+  User
+     .save()
+     .then((result) => {
+        res.redirect("/admin_customers");
+     })
+     .catch((err) => {
+        console.log(err);
+        res.render("admin_customers");
+     });
+};
+
+const getuserdb = (req,res) => {
+  user.find()
+  .then(result => {
+      res.render("admin_customers", { userss: result, users: req.session.users || null });
+    
+  })
+  .catch(err => {
+      console.log(err)
+  })
+
+}
+const deleteuser= async (req, res) => {
+
+    await user.findByIdAndRemove(req.params.id)
+    .then(result => {
+    userss: result;
+    res.redirect("/admin_customers")
+  }) .catch (err=> {
+    console.error(err);
+    res.status(500).send("Server error");
+  })
+
+};
+
+
+
+
 module.exports = {
   geteditdata,
   Addcitydb,
   editdata,
   deletedata,
+  AddUser,
+  getuserdb,
+  deleteuser
 };

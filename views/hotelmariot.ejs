@@ -61,51 +61,32 @@
                     <p>Enter dates to find the best prices </p>
 
                 </div>
-                <form    method="post"  action="/hotel/get/<%=objhotel.id %>/search">
+                <form method="post" action="/hotel/get/<%=objhotel.id %>/book">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label style="color: black ;" for="checkin-date">Check-In Date</label>
-                            <input type="date" class="form-control" id="checkin-date">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label style="color: black ;" for="checkout-date">Check-Out Date</label>
-                            <input type="date" class="form-control" id="checkout-date">
-                        </div>
+                      <div class="form-group col-md-6">
+                        <label style="color: black;" for="checkin-date">Check-In Date</label>
+                        <input type="text" class="form-control" id="checkin-date" name="checkinDate">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label style="color: black;" for="checkout-date">Check-Out Date</label>
+                        <input type="text" class="form-control" id="checkout-date" name="checkoutDate">
+                      </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label style="color: black ;" for="rooms-select">Rooms</label>
-                            <select class="form-control" id="rooms-select">
-                                <option selected>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label style="color: black ;" for="adults-select">Adults</label>
-                            <select class="form-control" id="adults-select">
-                                <option selected>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label style="color: black ;" for="children-select">Children</label>
-                            <select class="form-control" id="children-select">
-                                <option selected>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
+                    <!-- <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label style="color: black;" for="rooms-select">Rooms</label>
+                        <select class="form-control" id="rooms-select" name="roomNumber">
+                          <option selected>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                        </select>
+                      </div>
+                    </div> -->
+                    <div class="form-group col-md-4">
+                      <button type="submit" class="upbutton">Book</button>
                     </div>
-                    <div class="form-group col-md-4"><button type="submit" class="upbutton">Update</button>
-                    </div>
-
-                </form>
+                  </form>
             </div>
         </div>
     </div>

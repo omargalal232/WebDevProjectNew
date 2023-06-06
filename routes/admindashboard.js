@@ -42,10 +42,6 @@ router.get("/admin_addAdmin", (req, res) => {
 });
 
 // GET : /admin_customers
-router.get("/admin_customers", (req, res) => {
-
-    res.render("admin_customers", { users: req.session.users || null });
-});
 
 
 // GET : /admin_tours
@@ -75,6 +71,17 @@ router.get("/edit/:id", admin.geteditdata);
 router.post("/edit/:id", admin.editdata);
 
 router.post("/remove/:id", admin.deletedata);
+
+
+
+router.get("/admin_customers",admin.getuserdb);
+
+
+router.post("/admin_customers",admin.AddUser); 
+router.get("/admin_customers",admin.AddUser);
+
+
+router.post("/delete/:id", admin.deleteuser);
 
 
 

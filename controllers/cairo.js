@@ -25,9 +25,37 @@ const getcairo = (req, res) => {
       });
   };
 
+
+
+  const isavailable = (req, res) => {
+
+   cairo.findById(req.params.id)
+      .then((result) => {
+   
+        res.render("tourdetails", { objtour: result, users: req.session.users || null });
+        if(result.ticketsavailable<req.body.ticket){
+console.log("no tickets");
+
+        }
+        else {
+      var x= result.ticketsavailable-req.body.ticket;
+      result.ticketsavailable=x;
+      
+result.save(); 
+        console.log("booked");}
+      })
+      .catch((err) => {
+        console.log(err);
+        res.render("tourdetails", { objtour: [], users: req.session.users || null });
+      });
+  };
+
+
+
   module.exports = {
 
 getcairo:getcairo,
-tourdetails:tourdetails
+tourdetails:tourdetails,
+isavailable:isavailable
 
   };
