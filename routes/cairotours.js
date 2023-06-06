@@ -13,6 +13,8 @@ router.get("/get", cairo.getcairo);
 
 router.get("/get/:id",cairo.tourdetails); 
 
+router.post("/get/:id/available",cairo.isavailable); 
 
+// router.get("/get/:id/available",cairo.isavailable); 
 
 module.exports = router;
