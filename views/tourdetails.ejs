@@ -61,51 +61,17 @@
                     <p>Enter dates to find the best prices </p>
 
                 </div>
-                <form    method="post"  action="/hotel/get/<%=objtour.id %>/search">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label style="color: black ;" for="checkin-date">Check-In Date</label>
-                            <input type="date" class="form-control" id="checkin-date">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label style="color: black ;" for="checkout-date">Check-Out Date</label>
-                            <input type="date" class="form-control" id="checkout-date">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label style="color: black ;" for="rooms-select">Rooms</label>
-                            <select class="form-control" id="rooms-select">
-                                <option selected>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label style="color: black ;" for="adults-select">Adults</label>
-                            <select class="form-control" id="adults-select">
-                                <option selected>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label style="color: black ;" for="children-select">Children</label>
-                            <select class="form-control" id="children-select">
-                                <option selected>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group col-md-4"><button type="submit" class="upbutton">Update</button>
-                    </div>
+               
 
-                </form>
+
+
+
+                <form action="/cairotours/get/<%=objtour.id %>/available" method="post">
+                    <input type="text" placeholder="Search.." name="ticket">
+                    <button type="submit"  name="name">Submit</button>
+                  </form>
+
+
             </div>
         </div>
     </div>
