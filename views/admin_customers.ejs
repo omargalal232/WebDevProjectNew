@@ -11,14 +11,11 @@
     <link rel="stylesheet" href="/css/nav.css">
 
 </head>
-
 <header>
     <%- include("./partials/nav.ejs") %>
 </header>
 
 <body>
-
-    
     <br><br>
     <div class="container-fluid">
         <div class="row">
@@ -59,35 +56,81 @@
                 </div>
             </nav>
 
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <h2>Customers</h2>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Customer Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Add your customer data here -->
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>John Doe</td>
-                            <td>john@example.com</td>
-                            <td>+1 123-456-7890</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jane Smith</td>
-                            <td>jane@example.com</td>
-                            <td>+1 987-654-3210</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- Add your content here -->
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                    <h2>Users</h2>
+                
+                   
+                        <table class="table">
+    
+    
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col"> UserName</th>
+                                <th Scope="col">Action</th>
+                            </tr>
+    
+                            <% for (let i = 0; i < userss.length; i++) { %>
+    
+                                <!-- Add your tour data here -->
+                                <tr>
+                                    <th scope="row"><%i%></th>
+                                    <td>
+                                        <%= userss[i].UserName %>
+                                    </td>
+                                    <td> <a class="nav-link" href="" class="">edit</a>
+                                    </td>
+                                    <td>
+                                        <form action="/delete/<%=userss[i].id %>" method="post"
+                                            class="delete-form">
+                                            <button type="submit" class="nav-link">delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+    
+                                <%}%>
+                        </table>
+    
+                    
+         
+
+
+
+
+                        <h3>Add user</h3>
+                        <form action="/admin_customers" method="POST">
+                            <div class="mb-3">
+                                <label for="name" class="form-label"> Name:</label>
+                                <input type="text" class="form-control" id="tour_name" name="Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="UserName" class="form-label">UserName:</label>
+                                <textarea class="form-control" id="tour_description" name="UserName" rows="5"
+                                    required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="text" class="form-control" id="tour_name" name="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="number" class="form-label">Number:</label>
+                                <input type="text" class="form-control" id="tour_name" name="Number" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Password" class="form-label">Password:</label>
+                                <input type="text" class="form-control" id="tour_name" name="Password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ConfirmPassword" class="form-label">ConfirmPassword:</label>
+                                <input type="text" class="form-control" id="tour_name" name="ConfirmPassword" required>
+                            </div>
+                            <input type="submit" class="btn btn-primary" value="Add user">
+                        </form>
+                        <!-- End of Add Hotel Form -->
+
             </main>
+
         </div>
     </div>
 
@@ -97,3 +140,5 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
+
+</html>
