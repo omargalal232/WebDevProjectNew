@@ -27,6 +27,7 @@ const searchhotel = (req,res) => {
   .then(result => {
       res.render("hotel", { hotels: result, users: req.session.users || null });
   })
+ 
   .catch(err => {
       console.log(err)
       res.render("hotel", { hotels: [], users: req.session.users || null });
