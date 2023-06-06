@@ -1,7 +1,9 @@
-const hotel = require("../models/hotels");
+const Hotel = require("../models/hotels");
 const Room = require("../models/room");
+const Booking = require("../models/booking");
+const users = require("../models/users");
 const gethotel = (req, res) => {
-  hotel.find()
+  Hotel.find()
     .then((result) => {
       res.render("hotel", { hotels: result, users: req.session.users || null });
     })
@@ -12,7 +14,7 @@ const gethotel = (req, res) => {
 };
 
 const gethoteldb = (req,res) => {
-  hotel.find()
+  Hotel.find()
   .then(result => {
       res.render("admin_hotel", { hotels: result, users: req.session.users || null });
   })
@@ -23,7 +25,7 @@ const gethoteldb = (req,res) => {
 
 
 const searchhotel = (req,res) => {
-  hotel.find({name:req.body.name})
+  Hotel.find({name:req.body.name})
   .then(result => {
       res.render("hotel", { hotels: result, users: req.session.users || null });
   })
@@ -37,44 +39,78 @@ const searchhotel = (req,res) => {
 
     
 // Define a route handler for the form submission
-const bookroom= async (req, res) => {
+// Define a route handler for the form submission
+// Define a route handler for the form submission
+const bookroom = async (req, res) => {
   const hotelId = req.params.id;
-  const { checkinDate, checkoutDate } = req.body;
+  const { checkinDate, checkoutDate, guestName } = req.body;
 
   try {
-    // Fetch the hotel by ID
-    const hotell = await hotels.findById(hotelId);
+    // Fetch the room by roomNumber and hotelId and populate the 'hotel' field
+    const room = await Room.findOne({ hotel: hotelId }).populate('hotel');
 
-    // Find the available rooms for the selected dates
-    const availableRooms = await Room.find({
-      hotell: hotelId,
-      $or: [
-        { startDate: { $gt: new Date(checkoutDate) } },
-        { endDate: { $lt: new Date(checkinDate) } }
-      ]
-    });
-
-    if (availableRooms.length > 0) {
-      // At least one room is available
-      const selectedRoom = availableRooms[0]; // You can choose the first available room here
-
-      // Create a new booking
-      const booking = new Booking({
-        room: selectedRoom._id,
-        guestName: 'John Doe', // Replace with the actual guest name
-        startDate: new Date(checkinDate),
-        endDate: new Date(checkoutDate)
+    if (room) {
+      // Check for overlapping bookings with the same room and dates
+      const existingBooking = await Booking.findOne({
+        room: room._id,
+        startDate: { $lte: new Date(checkoutDate) },
+        endDate: { $gte: new Date(checkinDate) }
       });
 
-      // Save the booking
-      await booking.save();
+      if (!existingBooking) {
+        // No overlapping bookings with the same room and dates
 
-      // Redirect to a success page or display a success message
-      console.log("booked");
+        // Create a new booking
+        const booking = new Booking({
+          room: room._id,
+          startDate: new Date(checkinDate),
+          endDate: new Date(checkoutDate)
+        });
+
+        // Save the booking
+        await booking.save();
+
+        // Redirect to a success page or display a success message
+        console.log(booking);
+      } else {
+        // There is an existing booking with the same room and dates
+        console.log('This room is already booked for the selected dates');
+
+        // Find an available room in the same hotel for the given dates
+        const overlappingBookings = await Booking.find({
+          startDate: { $lt: new Date(checkoutDate) },
+          endDate: { $gt: new Date(checkinDate) }
+        }).select('room');
+
+        const bookedRoomIds = overlappingBookings.map(booking => booking.room);
+
+        const availableRoom = await Room.findOne({
+          hotel: hotelId,
+          _id: { $ne: room._id }, // Exclude the current room from the query
+          _id: { $nin: bookedRoomIds } // Exclude the rooms with overlapping bookings
+        }).populate('hotel');
+
+        if (availableRoom) {
+          // Book the available room with the same dates
+          const booking = new Booking({
+            room: availableRoom._id,
+            startDate: new Date(checkinDate).toISOString(),
+            endDate: new Date(checkoutDate).toISOString()
+          });
+
+          // Save the booking
+          await booking.save();
+
+          // Redirect to a success page or display a success message
+          console.log(`Booked another room  in the same hotel`);
+        } else {
+          // No other available rooms in the same hotel
+          console.log('No rooms available for the selected dates in this hotel');
+        }
+      }
     } else {
-      // No rooms available for the selected dates
-      // Redirect to an error page or display an error message
-   console.log("no rooms");
+      // Room not found
+      console.log('Room not found');
     }
   } catch (error) {
     // Handle any errors that occur during the process
@@ -86,13 +122,24 @@ const bookroom= async (req, res) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
  
 
 
 
 
 const hoteldetails = (req, res) => {
-  hotel.findById(req.params.id)
+  Hotel.findById(req.params.id)
     .then((result) => {
       res.render("hotelmariot", { objhotel: result, users: req.session.users || null });
     })

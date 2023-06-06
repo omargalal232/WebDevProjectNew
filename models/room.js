@@ -6,10 +6,10 @@ const roomSchema = new mongoose.Schema({
     ref: 'hotels',
     required: true
   },
-  roomNumber: {
-    type: String,
-    required: true
-  },
+  // roomNumber: {
+  //   type: String,
+  //   required: true
+  // },
   // other room fields
 });
 
@@ -18,15 +18,15 @@ const Room = mongoose.model('Room', roomSchema);
 // const room = new Room({
 
 
-//     hotel:'647dbfbd6910206bfdbfdb36',
-//     roomNumber: 1,
+//     hotel:'647f31aecb4a1882482a0103',
+//     roomNumber: 2,
 
 //     // set other booking fields
 //   });
   
 //   room.save()
 //     .then(() => {
-//       console.log('Booking created successfully');
+//       console.log('Room created successfully');
 //     })
 //     .catch((error) => {
 //       console.error('Failed to create booking:', error);

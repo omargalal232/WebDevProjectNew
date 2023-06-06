@@ -16,16 +16,17 @@ const hotelsSchema = new mongoose.Schema({
 image:{
 type: String,
 required:true
-}
+},
+
 
   
 }, { timestamps: true });
 
 const hotels = mongoose.model('hotels', hotelsSchema);
 // const hotel=new hotels({
-//     name: 'hilton cairo',  
+//     name: 'mariot',  
 //       price: 5000,
-//       description:'hilton tagmoa',
+//       description:'mariot hotel',
 //       image:'https://serving.photos.photobox.com/1089702650301a995818d44b474b933c76730986be58d63528e97e773726005299f4f893.jpg'
      
 

@@ -6,11 +6,10 @@ const bookingSchema = new mongoose.Schema({
     ref: 'Room',
     required: true
   },
-  guestName: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
-    required: true
-  },
+  // guestName: {
+  //   type: String,
+  //   required: true
+  // },
   startDate: {
     type: Date,
     required: true
@@ -23,22 +22,22 @@ const bookingSchema = new mongoose.Schema({
 });
 
 // Custom validation to check for overlapping bookings
-bookingSchema.pre('save', async function (next) {
-  const Booking = mongoose.model('Booking');
+// bookingSchema.pre('save', async function (next) {
+//   const Booking = mongoose.model('Booking');
 
-  const bookings = await Booking.find({
-    room: this.room,
-    startDate: { $lt: this.endDate },
-    endDate: { $gt: this.startDate }
-  });
+//   const bookings = await Booking.find({
+//     room: this.room,
+//     startDate: { $lt: this.endDate },
+//     endDate: { $gt: this.startDate }
+//   });
 
-  if (bookings && bookings.length > 0) {
-    const errorMessage = 'This room is already booked for the selected dates';
-    return next(new Error(errorMessage));
-  }
+//   if (bookings && bookings.length > 0) {
+//     const errorMessage = 'This room is already booked for the selected dates';
+//     return next(new Error(errorMessage));
+//   }
 
-  next();
-});
+//   next();
+// });
 
 const Booking = mongoose.model('Booking', bookingSchema);
 // const booking = new Booking({
