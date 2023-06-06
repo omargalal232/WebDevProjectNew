@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- ... -->
+    <!-- Include Bootstrap CSS and other required CSS files -->
+    <!-- ... -->
+</head>
+
+
+
+
+
+<body>
+    <h2>Edit user</h2>
+    <form action="/edituser/<%=userss.id %>" method="POST">
+        <div>
+            <label for="tour_name">Name:</label>
+            <input type="text" id="tour_name" name="Name" value="<%= userss.Name %>">
+        </div>
+        <div>
+            <label for="tour_name">UserName:</label>
+            <input type="text" id="tour_name" name="UserName" value="<%= userss.UserName %>">
+        <div>
+            <label for="tour_name">Email:</label>
+            <input type="text" id="tour_name" name="Email" value="<%= userss.Email%>">
+        </div>
+    
+        <!-- Add more form fields if needed, based on your schema -->
+        <input type="submit" value="Update user">
+    </form>
+</body>
+
+</html>
