@@ -70,18 +70,18 @@
                             <th Scope="col">Action</th>
                         </tr>
 
-                        <% cities.forEach(Tour=> { %>
+                        <% cities.forEach(tour=> { %>
 
                             <!-- Add your tour data here -->
                             <tr>
                                 <th scope="row">1</th>
                                 <td>
-                                    <%= Tour.name %>
+                                    <%= tour.name %>
                                 </td>
-                                <td> <a class="nav-link" href="/edit/<%= Tour._id %>" class="">edit</a>
+                                <td> <a class="nav-link" href="/edit/<%= tour.id %>" class="">edit</a>
                                 </td>
                                 <td>
-                                    <form action="/remove/<%= Tour._id %>" method="POST"
+                                    <form action="/remove/<%= tour.id %>" method="POST"
                                         class="delete-form">
                                         <button type="submit" class="nav-link">delete</button>
                                     </form>
@@ -101,16 +101,12 @@
                         <form action="/admin_tours" method="POST">
                             <div class="mb-3">
                                 <label for="tour_name" class="form-label">Tour Name:</label>
-                                <input type="text" class="form-control" id="tour_name" name="tour_name" required>
+                                <input type="text" class="form-control" id="tour_name" name="name" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="tour_description" class="form-label">Description:</label>
-                                <textarea class="form-control" id="tour_description" name="tour_description" rows="5"
-                                    required></textarea>
-                            </div>
+                
                             <div class="mb-3">
                                 <label for="tour_image" class="form-label">Upload tour Image / Enter Url:</label>
-                                <input type="text" class="form-control" id="tour_image" name="tour_image"
+                                <input type="text" class="form-control" id="tour_image" name="price"
                                     accept="image/*" required>
                             </div>
                             <input type="submit" class="btn btn-primary" value="Add tour">

@@ -47,35 +47,32 @@ router.get("/admin_addAdmin", (req, res) => {
 
 
 // GET : /admin_tours
-router.get("/admin_tours",City.getcitydb); 
-router.post("/admin_tours",admin.Addcitydb); 
-router.get("/admin_tours",admin.Addcitydb); 
+// router.get("/admin_tours",City.getcitydb); 
+// router.post("/admin_tours",admin.Addcitydb); 
+// router.get("/admin_tours",admin.Addcitydb); 
 
 
-// GET : /admin_hotel
-router.get("/admin_hotel", Hotel.gethoteldb) ;
-router.post("/admin_hotel",admin.Addhotels); 
-router.get("/admin_hotel",admin.Addhotels); 
+// // GET : /admin_hotel
+// router.get("/admin_hotel", Hotel.gethoteldb) ;
+// router.post("/admin_hotel",admin.Addhotels); 
+// router.get("/admin_hotel",admin.Addhotels); 
 
 
-// modefiy the crusie routers
-router.get("/admin_cruise", (req, res) => {
- res.render("admin_cruise", { users: req.session.users || null });
-});
 
-// modefiy the hotels routers
-router.get("/edit/:id", admin.getedithoteld);
-router.post("/edit/:id", admin.edithotel);
-router.get("/remove/:id", admin.deletehotel);
+
+// // modefiy the hotels routers
+// router.get("/edit/:id", admin.getedithoteld);
+// router.post("/edit/:id", admin.edithotel);
+// router.get("/remove/:id", admin.deletehotel);
 
 
 
 
 
-// modefiy the tours routers
-router.get("/edit/:id", admin.geteditdata);
-router.post("/edit/:id", admin.editdata);
-router.post("/remove/:id", admin.deletedata);
+// // modefiy the tours routers
+// router.get("/edit/:id", admin.geteditdata);
+// router.post("/edit/:id", admin.editdata);
+// router.post("/remove/:id", admin.deletedata);
 
 
 // modefiy the customer routers
@@ -84,7 +81,18 @@ router.post("/admin_customers",admin.AddUser);
 router.get("/admin_customers",admin.AddUser);
 router.post("/delete/:id", admin.deleteuser);
 
+router.get("/edituser/:id", admin.getedituserld);
+router.post("/edituser/:id", admin.edituser);
+
+router.get("/edituser/:id", admin.edituser);
 
 
+
+
+
+router.get("/admin_homepage",admin.gethomepage);
+router.post("/admin_homepage",admin.addhomepage);
+router.get("/admin_homepage",admin.addhomepage);
+router.post("/admin_homepage/delete/:id", admin.deletecity);
 
 module.exports = router;
