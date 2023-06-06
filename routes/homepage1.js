@@ -13,7 +13,7 @@ router.get("/homepage1", (req, res) => {
 router.get("/wishlist", async (req, res) => {
   const userId = req.session.users._id;
 
-  const tours = await city.find({ usersWithWishlist: userId });
+  const tours = await cities.find({ usersWithWishlist: userId });
   const hotels = await hotels.find({ usersWithWishlist: userId });
 
   res.render("wishlist", { users: req.session.users || null, tours, hotels });
