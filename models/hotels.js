@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const hotelsSchema = new mongoose.Schema({
+const hotelsSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -9,37 +10,30 @@ const hotelsSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  description:{
+  description: {
     type: String,
-    required:true
+    required: true
   },
-image1:{
-type: String,
-required:true
-},
-image2:{
-  type: String,
-  required:true
-  },
-image3:{
+  image1: {
     type: String,
-    required:true
+    required: true
+  },
+  image2: {
+    type: String,
+    required: true
+  },
+  image3: {
+    type: String,
+    required: true
+  },
+  usersWithWishlist: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User", // Assuming you have a User model
     },
-
-
-  
+  ],
 }, { timestamps: true });
 
 const hotels = mongoose.model('hotels', hotelsSchema);
-// const hotel=new hotels({
-//     name: 'mariot',  
-//       price: 5000,
-//       description:'mariot hotel',
-//       image:'https://serving.photos.photobox.com/1089702650301a995818d44b474b933c76730986be58d63528e97e773726005299f4f893.jpg'
-     
-
-//     });
-// hotel.save();
-
 
 module.exports = hotels;

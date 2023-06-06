@@ -60,6 +60,7 @@ const loginRouter = require("./routes/login");
 const admindashboardRouter = require("./routes/admindashboard");
 const cairoRouter = require("./routes/cairotours");
 const hotelRouter = require("./routes/hotel");
+const wishlistRouter = require("./routes/wishlist");
 
 
 
@@ -72,6 +73,7 @@ app.use("/login", loginRouter);
 app.use("/", admindashboardRouter);
 app.use("/cairotours", cairoRouter);
 app.use("/hotel", hotelRouter);
+app.use("/wishlist", wishlistRouter);
 
 
 

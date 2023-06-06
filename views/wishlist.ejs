@@ -18,51 +18,23 @@
   </header>
 
   <main>
-    <section class="wishlist-container">
-      <h2>Hotels</h2>
-      <div class="wishlist-items">
-        <!-- Hotel wishlist items go here -->
-        <div class="wishlist-item">
-          <img src="hotel1.jpg" alt="Hotel 1">
-          <div class="item-details">
-            <h3>Hotel 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="remove-item">Remove</button>
-          </div>
-        </div>
-        <div class="wishlist-item">
-          <img src="hotel2.jpg" alt="Hotel 2">
-          <div class="item-details">
-            <h3>Hotel 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="remove-item">Remove</button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <h2>Tours</h2>
+    <ul>
+      <% tours.forEach((tour)=> { %>
+        <li>
+          <%= tour.name %>
+        </li>
+        <% }) %>
+    </ul>
 
-    <section class="wishlist-container">
-      <h2>Tours</h2>
-      <div class="wishlist-items">
-        <!-- Tour wishlist items go here -->
-        <div class="wishlist-item">
-          <img src="tour1.jpg" alt="Tour 1">
-          <div class="item-details">
-            <h3>Tour 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="remove-item">Remove</button>
-          </div>
-        </div>
-        <div class="wishlist-item">
-          <img src="tour2.jpg" alt="Tour 2">
-          <div class="item-details">
-            <h3>Tour 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <button class="remove-item">Remove</button>
-          </div>
-        </div>
-      </div>
-    </section>
+    <h2>Hotels</h2>
+    <ul>
+      <% hotels.forEach((hotel)=> { %>
+        <li>
+          <%= hotel.name %>
+        </li>
+        <% }) %>
+    </ul>
   </main>
   <br>
 
