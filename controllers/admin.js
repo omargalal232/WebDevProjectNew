@@ -90,6 +90,40 @@ const gethotelsdb = (req,res) => {
   })
 
 }
+const getedithoteld = async (req, res) => {
+  try {
+    const tour = await Hotel.findById(req.params.id);
+    res.render("admin_tours_edit", { tour });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+};
+
+const edithotel = async (req, res) => {
+  try {
+    const updatedhotel = {
+      name: req.body.tour_name,
+      description: req.body.tour_description,
+      image1: req.body.tour_image,
+    };
+    await Hotel.findByIdAndUpdate(req.params.id, updatedhotel);
+    res.redirect("/admin_hotel");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+};
+
+const deletehotel = async (req, res) => {
+  try {
+    await Hotel.findByIdAndRemove(req.params.id);
+    res.redirect("/admin_hotel");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+};
 
 
 
@@ -152,4 +186,8 @@ module.exports = {
   deleteuser,
   Addhotels,
   gethotelsdb,
+  deletehotel,
+  getedithoteld,
+  edithotel,
+
 };

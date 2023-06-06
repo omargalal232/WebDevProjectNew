@@ -50,43 +50,38 @@ router.get("/admin_addAdmin", (req, res) => {
 router.get("/admin_tours",City.getcitydb); 
 router.post("/admin_tours",admin.Addcitydb); 
 router.get("/admin_tours",admin.Addcitydb); 
-// GET : /admin_hotel
 
+
+// GET : /admin_hotel
 router.get("/admin_hotel", Hotel.gethoteldb) ;
 router.post("/admin_hotel",admin.Addhotels); 
 router.get("/admin_hotel",admin.Addhotels); 
 
 
-
+// modefiy the crusie routers
 router.get("/admin_cruise", (req, res) => {
-
-    res.render("admin_cruise", { users: req.session.users || null });
+ res.render("admin_cruise", { users: req.session.users || null });
 });
 
+// modefiy the hotels routers
+router.get("/edit/:id", admin.getedithoteld);
+router.post("/edit/:id", admin.edithotel);
+router.get("/remove/:id", admin.deletehotel);
 
 
 
 
 
-
-
-
+// modefiy the tours routers
 router.get("/edit/:id", admin.geteditdata);
-
-
 router.post("/edit/:id", admin.editdata);
-
 router.post("/remove/:id", admin.deletedata);
 
 
-
+// modefiy the customer routers
 router.get("/admin_customers",admin.getuserdb);
-
-
 router.post("/admin_customers",admin.AddUser); 
 router.get("/admin_customers",admin.AddUser);
-
-
 router.post("/delete/:id", admin.deleteuser);
 
 
