@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const city = require('../models/city');
-const hotels = require('../models/hotel');
+const hotels = require('../models/hotels');
 
 router.post("/add", async (req, res) => {
     const { type, itemId } = req.body;
