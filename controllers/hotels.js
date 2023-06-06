@@ -45,8 +45,7 @@ const searchhotel = (req,res) => {
 
     
 // Define a route handler for the form submission
-// Define a route handler for the form submission
-// Define a route handler for the form submission
+
 const bookroom = async (req, res) => {
   const hotelId = req.params.id;
   const { checkinDate, checkoutDate, guestName } = req.body;
@@ -77,10 +76,10 @@ const bookroom = async (req, res) => {
         await booking.save();
 
         // Redirect to a success page or display a success message
-        console.log(booking);
+        res.render('success', { message: 'Room booked successfully' });
       } else {
         // There is an existing booking with the same room and dates
-        console.log('This room is already booked for the selected dates');
+        res.render('err', { err: 'This room is already booked for the selected dates', users: (req.session.users === undefined ? "" : req.session.users) });
 
         // Find an available room in the same hotel for the given dates
         const overlappingBookings = await Booking.find({
@@ -108,38 +107,23 @@ const bookroom = async (req, res) => {
           await booking.save();
 
           // Redirect to a success page or display a success message
-          console.log(`Booked another room  in the same hotel`);
+          res.render('success', { message: 'Booked another room in the same hotel' });
         } else {
           // No other available rooms in the same hotel
-          console.log('No rooms available for the selected dates in this hotel');
+          res.render('err', { err: 'No rooms available for the selected dates in this hotel', users: (req.session.users === undefined ? "" : req.session.users) });
         }
       }
     } else {
       // Room not found
-      console.log('Room not found');
+      res.render('err', { err: 'Room not found', users: (req.session.users === undefined ? "" : req.session.users) });
     }
   } catch (error) {
     // Handle any errors that occur during the process
     console.error('Failed to book a room:', error);
     // Redirect to an error page or display an error message
-    res.render('404');
+    res.render('err', { err: 'Failed to book a room', users: (req.session.users === undefined ? "" : req.session.users) });
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 
 
 
@@ -147,13 +131,14 @@ const bookroom = async (req, res) => {
 const hoteldetails = (req, res) => {
   Hotel.findById(req.params.id)
     .then((result) => {
-      res.render("hotelmariot", { objhotel: result, users: req.session.users || null });
+      res.render("hotelmariot", { objhotel: result, users: req.session.users || null, err: null });
     })
     .catch((err) => {
       console.log(err);
-      res.render("hotel", { objhotel: [], users: req.session.users || null });
+      res.render("hotelmariot", { objhotel: [], users: req.session.users || null, err: err.message });
     });
 };
+
 
 
 
