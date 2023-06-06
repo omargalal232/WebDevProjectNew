@@ -179,6 +179,55 @@ const deleteuser= async (req, res) => {
 
 };
 
+const gethomepage = (req,res) => {
+  City.find()
+  .then(result => {
+      res.render("admin_homepage", { City: result});
+    
+  })
+  .catch(err => {
+      console.log(err)
+  })
+
+}
+const addhomepage =(req, res) => {
+  
+const cityy=new City({
+    name: req.body.name,
+    description: req.body.description,
+  
+    image:req.body.img,
+}) 
+ cityy.save()
+ .then((result) => {
+City: result;
+res.redirect("/admin_homepage");
+
+})
+.catch((err) => {
+  console.log(err);
+  res.render("admin_homepage");
+});
+
+}
+
+
+
+const deletecity= async (req, res) => {
+
+  await City.findByIdAndRemove(req.params.id)
+  .then(result => {
+  City: result;
+  res.redirect("/admin_homepage")
+}) .catch (err=> {
+  console.error(err);
+  res.status(500).send("Server error");
+})
+
+};
+
+
+
 
 
 
@@ -195,5 +244,8 @@ module.exports = {
   deletehotel,
   getedithoteld,
   edithotel,
+  gethomepage,
+  addhomepage,
+  deletecity
 
 };

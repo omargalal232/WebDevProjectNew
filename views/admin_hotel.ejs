@@ -69,19 +69,22 @@
                             <th Scope="col">Action</th>
                         </tr>
 
-                        <% hotels.forEach(Hotel=> { %>
-
-                            <!-- Add your tour data here -->
+                        <% hotels.forEach((Hotel, i)=> { %>
                             <tr>
-                                <th scope="row"><%= i + 1 %></th>
+                                <th scope="row">
+                                    <%= i + 1 %>
+                                </th>
                                 <td>
                                     <%= Hotel.name %>
                                 </td>
-                                <td> <a class="nav-link" href="/edit/hotel/<%= Hotel._id %>" class="">edit</a> </td>
-                                <td> <a class="nav-link" href="/remove/hotel/<%= Hotel._id %>" class="">delete</a> </td>
+                                <td>
+                                    <a class="nav-link" href="/edit/hotel/<%= Hotel._id %>">edit</a>
+                                </td>
+                                <td>
+                                    <a class="nav-link" href="/remove/hotel/<%= Hotel._id %>">delete</a>
+                                </td>
                             </tr>
-
-                            <%})%>
+                            <% }) %>
                     </table>
 
                     <%}%>

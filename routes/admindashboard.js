@@ -89,4 +89,10 @@ router.post("/delete/:id", admin.deleteuser);
 
 
 
+
+router.get("/admin_homepage",admin.gethomepage);
+router.post("/admin_homepage",admin.addhomepage);
+router.get("/admin_homepage",admin.addhomepage);
+router.post("/admin_homepage/delete/:id", admin.deletecity);
+
 module.exports = router;
