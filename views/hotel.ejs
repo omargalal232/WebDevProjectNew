@@ -116,8 +116,7 @@
                 <a href="/hotel/get/<%= hotels[i].id %>">
                   <button class="view-hotel">View Deal</button>
                 </a>
-                <button class="wishlist-button add-to-wishlist" data-type="hotel" data-id="<%= hotels._id %>">Add to
-                  Wishlist</button>
+                <button class="view-hotel">Add to wishlist</button>
               </div>
             </div>
             <% if ((i + 1) % 3===0 && i !==hotels.length - 1) { %>
@@ -139,31 +138,7 @@
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  document.querySelectorAll(".add-to-wishlist").forEach((btn) => {
-    btn.addEventListener("click", async (e) => {
-      const type = e.target.dataset.type;
-      const itemId = e.target.dataset.id;
 
-      try {
-        const response = await fetch("/wishlist/add", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ type, itemId }),
-        });
-
-        if (response.ok) {
-          alert("Added to wishlist!");
-        } else {
-          alert("Error adding to wishlist.");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        alert("Error adding to wishlist.");
-      }
-    });
-  });
 </script>
 
 </html>
