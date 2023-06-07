@@ -13,7 +13,8 @@ router.get("/get", cairo.getcairo);
 
 router.get("/get/:id",cairo.tourdetails); 
 
-router.post("/get/:id/available",cairo.isavailable); 
+router.post("/get/:id/available",cairo.bookTickets); 
+
 
 // router.get("/get/:id/available",cairo.isavailable); 
 

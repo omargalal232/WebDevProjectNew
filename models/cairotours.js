@@ -7,35 +7,35 @@ const cairotoursSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: true
+
   },
   duration: {
     type: Number,
-    required: true
+   
   },
   price: {
     type: Number,
-    required: true
+  
   },
   description: {
     type: String,
-    required: true
+   
   },
   ticketsavailable: {
     type: Number,
-    required: true
+    
   },
 img1:{
 type: String,
-required:true
+
 },
 img2:{
   type: String,
-  required:true
+ 
   },
   img3:{
     type: String,
-    required:true
+
     }
   
 }, { timestamps: true });

@@ -36,29 +36,34 @@ const getcairo = (req, res) => {
   };
 
 
-
-  const isavailable = (req, res) => {
-
-   cairo.findById(req.params.id)
-      .then((result) => {
-   
-        res.render("tourdetails", { objtour: result, users: req.session.users || null });
-        if(result.ticketsavailable<req.body.ticket){
-console.log("no tickets");
-
-        }
-        else {
-      var x= result.ticketsavailable-req.body.ticket;
-      result.ticketsavailable=x;
+  const bookTickets = async (req, res) => {
+    try {
+      const numberoftickets = req.body.tickets;
+      const parsedTickets = parseInt(numberoftickets);
+     
       
-result.save(); 
-        console.log("booked");}
-      })
-      .catch((err) => {
-        console.log(err);
-        res.render("tourdetails", { objtour: [], users: req.session.users || null });
-      });
+  
+      const tour = await cairo.findById(req.params.id);
+  
+      res.render("payment", { objtour: tour, users: req.session.users || null });
+      
+  
+      if (parsedTickets > tour.ticketsavailable) {
+        // Handle the case where the requested number of tickets exceeds the available tickets
+        res.render("homepage1", { objtour: tour, users: req.session.users || null });
+      } else {
+        tour.ticketsavailable = tour.ticketsavailable - parsedTickets;
+        await tour.save();
+      
+      }        res.render("payment", { objtour: tour, users: req.session.users || null });
+    } catch (error) {
+      console.error(error);
+  // Redirect to an error page or handle the error appropriately
+    }
   };
+
+
+
 
 
 
@@ -66,7 +71,7 @@ result.save();
 
 getcairo:getcairo,
 tourdetails:tourdetails,
-isavailable:isavailable,
-getcairodb:getcairodb
+getcairodb:getcairodb,
+bookTickets
 
   };
