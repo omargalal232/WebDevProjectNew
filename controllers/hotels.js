@@ -76,7 +76,7 @@ const bookroom = async (req, res) => {
         await booking.save();
 
         // Redirect to a success page or display a success message
-        res.render('success', { message: 'Room booked successfully' });
+        res.render('payment', { message: 'Room booked successfully' });
       } else {
         // There is an existing booking with the same room and dates
         res.render('err', { err: 'This room is already booked for the selected dates', users: (req.session.users === undefined ? "" : req.session.users) });
@@ -139,6 +139,37 @@ const hoteldetails = (req, res) => {
     });
 };
 
+const payment = (req, res) => {
+  const hotelId = req.params.id;
+  const checkinDate = req.body.checkinDate;
+  const checkoutDate = req.body.checkoutDate;
+
+  Hotel.findById(hotelId)
+    .then((hotel) => {
+      if (hotel) {
+        const bill = calculateBill(hotel.price, checkinDate, checkoutDate);
+        res.render("payment", {
+          hotel: hotel,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          users: req.session.users || null,
+          err: null,
+          bill: bill,
+        });
+      } else {
+        res.send("Hotel not found");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send("Error occurred");
+    });
+};
+
+
+
+
+
 
 
 
@@ -151,5 +182,6 @@ module.exports = {
   hoteldetails:hoteldetails,
   bookroom:bookroom,
   searchhotel:searchhotel,
+  payment:payment
  
 };
