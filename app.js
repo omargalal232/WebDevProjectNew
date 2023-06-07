@@ -62,8 +62,6 @@ const cairoRouter = require("./routes/cairotours");
 const hotelRouter = require("./routes/hotel");
 const wishlistRouter = require("./routes/wishlist");
 
-
-
 app.use("/flight", flightRouter);
 app.use("/", homepage1Router);
 app.use("/Cruise", cruisesRoutes);
