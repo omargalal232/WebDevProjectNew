@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const { Schema } = mongoose;
 const cairotoursSchema = new mongoose.Schema({
   name: {
     type: String,
