@@ -73,7 +73,7 @@
           <div class="tour-row">
         <% } %>
         <div class="tour-box">
-          <img style="height: 200px; width: 350px;" src="<%= cairotours[i].image %>" alt="">
+          <img style="height: 200px; width: 350px;" src="<%= cairotours[i].img1 %>" alt="">
           <h4><%= cairotours[i].name %></h4>
           <div class="tour-details">
             <p>Duration: <%= cairotours[i].duration %> hours</p>
@@ -81,6 +81,7 @@
             <h4>EGP <%= cairotours[i].price %> per adult</h4>
           </div>
           <a href="/cairotours/get/<%= cairotours[i].id %>"><button class="view-tour">View Tour</button></a>
+          <a href="/cairotours/get" class="btn">Add to wishlist</a>
         </div>
         <% if ((i + 1) % 3 === 0 || (i + 1) === cairotours.length) { %>
           </div>

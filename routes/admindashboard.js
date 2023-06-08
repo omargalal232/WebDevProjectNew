@@ -20,6 +20,14 @@ router.use("/admin_dashboard", (req, res, next) => {
     }
 });
 
+router.get("/wishlist", async (req, res) => {
+  const userId = req.session.id;
+
+  const tours = await city.find({ usersWithWishlist: userId });
+  const Hotels = await hotels.find({ usersWithWishlist: userId });
+
+  res.render("wishlist", { users: req.session.users || null, tours, Hotels });
+});
 
 // GET : /admindashboard
 // router.get("/", (req, res) => {

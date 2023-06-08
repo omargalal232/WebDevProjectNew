@@ -36,7 +36,13 @@ img2:{
   img3:{
     type: String,
     required:true
-    }
+    },
+    usersWithWishlist: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User", // Assuming you have a User model
+      },
+    ],
   
 }, { timestamps: true });
 
